@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/favicon.png" rel="icon">
+    <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/typeaheadjs.css" rel="stylesheet">
+    <style>
+        .panel {
+            border: 0;
+            box-shadow: none;
+        }
+    </style>
+    <title>twExit</title>
+</head>
+{% endblock %}
+
+<body>
+
+{% include "navbar.html" %}
+
+{% block options %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <form class="form-inline" id="user-id-form" method="post" action="/lost_asset">
+            <div class="form-group" id="ldap-users">
+                {{ form.csrf_token }}
+                {{ form.USER_ID(class_="form-control typeahead", placeholder="Enter LDAP user name", size=40) }}
+            </div>
+        </form>
+    </div>
+    <div class="panel-body">
+        <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <p class="text-warning">{{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <form class="form-inline" id="lost-asset-form" method="post" action="/offboard">
+            <table class="table table-condensed">
+                <tr>
+                    <td class="col-md-4">
+                        <p>As per the Lost Asset protocol,<br>the following actions will be performed:</p>
+                        <dl>
+                            <li>Invalidate backup codes</li>
+                            <li>Purge application specific passwords</li>
+                            <li>Reset Google apps password</li>
+                            <li>Purge 3rd party access tokens</li>
+                            <li>Disable IMAP email</li>
+                            <li>Disable POP email</li>
+                            <li>Reset Sign-In cookies</li>
+                        </dl>
+                        <dl id="formOptions">
+                            {{ form.csrf_token }}
+                            {% for field in form if field.name in actions %}
+                                {{ field(class_="checkbox") }} {{ field.label }}
+                                <br>
+                            {% endfor %}
+                        </dl>
+                    </td>
+                    <td class="col-md-8">
+                        <div class="panel panel-primary" style="height: 500px;">
+                            {% if user_info %}
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Name:</strong></div>
+                                            <div class="col-md-9">{{ user_info['first_name'] }} {{ user_info['last_name'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Role:</strong></div>
+                                            <div class="col-md-9">{{ user_info['title'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Team:</strong></div>
+                                            <div class="col-md-9">{{ user_info['department'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Org:</strong></div>
+                                            <div class="col-md-9">{{ user_info['org_role'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Location:</strong></div>
+                                            <div class="col-md-9">{{ user_info['office'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Start date:</strong></div>
+                                            <div class="col-md-9">{{ user_info['start_date'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>LDAP UID:</strong></div>
+                                            <div class="col-md-9">{{ user_info['uid_number'] }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>LDAP groups:</strong></div>
+                                            <div class="col-md-9">
+                                                {% for group in user_info['member_of'] %}{{ group }} {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Status:</strong></div>
+                                            <div class="col-md-9">
+                                                {% if user_info['suspended'] %}
+                                                    <span class="text-danger">INACTIVE</span>
+                                                {% else %}
+                                                    <span class="text-info">ACTIVE</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="{{ user_info['thumbnail_image_url'] }}" class="img-circle" width="100" height="100">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12 text-center" id="data">
+                                        Click to submit changes for {{ user_info['first_name'] }}.
+                                        <button class="btn btn-default" id="button" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="panel-footer">
+        <div class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped active" id="progress-bar" role="progressbar"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+<script src="/static/js/twexit.js"></script>
+<script type="text/javascript">
+
+    {% block ldap_users %}
+    var users = {{ users|safe }};
+    {% endblock %}
+
+    typeaheadRun("#ldap-users", "users", users);
+    typeaheadSubmitFormOnSelect("#ldap-users", "#user-id-form");
+    disableEnterKey("#lost-asset-form");
+    var checkboxes = ["RESET_PASSWORD", "DELETE_ASPS", "DELETE_TOKENS",
+        "INVALIDATE_BACKUP_CODES", "DISABLE_IMAP", "DISABLE_POP"];
+    selectDefaultCheckboxes(checkboxes);
+    $("#formOptions").hide();
+
+    {% block lost_asset %}
+    var userId = "{{ form['USER_ID'].data }}";
+    var user = "{{ user }}";
+    var timeStamp = (new Date).getTime();
+    var sessionId = timeStamp + "_" + user + "_" + userId;
+
+    $("#lost-asset-form").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr("action") + "/" + sessionId,
+            type: 'POST',
+            data: $(this).serialize() + "&USER_ID=" + userId + "&LOST_ASSET=y"
+        });
+
+        var progressData = "Performing changes for " + userId + "...<br><br>";
+        $("#data").html(progressData);
+        var progress = 0;
+        progressBar("#progress-bar", "#progress", progress);
+
+        var items = $('input[class="checkbox"]:checked').length + 1;  // adding 1 step for sign-in cookies reset
+        var step = (100.0 / items);
+        var source = new EventSource('/offboard/' + sessionId);
+        source.onmessage = function(e) {
+            progress += step;
+            progressData += e.data;
+            $("#data").html(progressData);
+            progressBar("#progress-bar", "#progress", progress);
+            if (progress >= 100) {
+                source.close();
+                // Show a success message for reset sign-in cookies (happens by default when we suspend/unsuspend)
+                progressData += "<br>Done!";
+                $("#data").html(progressData);
+            }
+        };
+    });
+    {% endblock %}
+</script>
+
+</body>
+</html>

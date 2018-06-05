@@ -1,0 +1,91 @@
+defaults:
+  # Environment used. Choose between 'production' and 'testing'.
+  environment: "testing"
+  base_dir: "."
+  use_https: false
+  debug: true
+  flask_secret: "CHANGE_ME"
+  http_proxy:
+    use_proxy: false
+    proxy_url: "CHANGE_ME"
+    proxy_port: 8080
+    proxy_user: "CHANGE_ME"
+    proxy_pass: "CHANGE_ME"
+
+ldap:
+  base_dn: "CHANGE_ME"
+  pass: "CHANGE_ME"
+  uri: "CHANGE_ME"
+  user: "CHANGE_ME"
+  queries:
+    all_users: "CHANGE_ME"
+    user_is_valid: "CHANGE_ME"
+    user_is_active: "CHANGE_ME"
+    user_info: "(uid=USER)"
+  fields:
+    full_name: "cn"
+    first_name: "givenName"
+    role: "CHANGE_ME"
+    team: "CHANGE_ME"
+    org: "CHANGE_ME"
+    location: "CHANGE_ME"
+    start_date: "CHANGE_ME"
+    uid_number: "uidNumber"
+    groups: "memberOf"
+    photo_url: "CHANGE_ME"
+
+pagerduty:
+  base_url: "https://api.pagerduty.com/"
+  api_key: "CHANGE_ME"
+
+google_apps:
+  admin_user: "gate-keeping-admin"
+  domain: "testdomain.com"
+  credentials_keyfile: "google_api_service_account_keyfile.json"
+  api_scopes:
+    - "https://www.googleapis.com/auth/admin.directory.user"
+    - "https://www.googleapis.com/auth/admin.directory.user.security"
+    - "https://www.googleapis.com/auth/admin.directory.group.member"
+    - "https://www.googleapis.com/auth/gmail.settings.basic"
+    - "https://www.googleapis.com/auth/gmail.settings.sharing"
+    - "https://www.googleapis.com/auth/calendar"
+    - "https://www.googleapis.com/auth/drive"
+
+# Note: the items in the following lists MUST match the names of the fields for each form
+# See forms.py for more info.
+actions:
+  google_admin: &google_admin
+    RESET_PASSWORD: true
+    DELETE_ASPS: true
+    DELETE_TOKENS: true
+    INVALIDATE_BACKUP_CODES: true
+    ORG_UNIT_CHANGE: true
+    ORG_UNIT_RESET: true
+  google_gmail: &google_gmail
+    SET_OOO_MSG: false
+    DISABLE_IMAP: true
+    DISABLE_POP: true
+  google_calendar: &google_calendar
+    CHANGE_EVENTS_OWNERSHIP: true
+    REMOVE_FUTURE_EVENTS: true
+  google_drive: &google_drive
+    NEW_FILES_OWNER: true
+    FILE_SEARCH: true
+  pagerduty: &pagerduty
+    REMOVE_FROM_ONCALLS: true
+  duo: &duo
+    REMOVE_FROM_DUO: false
+
+action_groups:
+  offboard:
+    <<: *google_admin
+    <<: *google_gmail
+    <<: *google_calendar
+    <<: *pagerduty
+  lost_asset:
+    - RESET_PASSWORD
+    - DELETE_ASPS
+    - DELETE_TOKENS
+    - INVALIDATE_BACKUP_CODES
+    - DISABLE_IMAP
+    - DISABLE_POP

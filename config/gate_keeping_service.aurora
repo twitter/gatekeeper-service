@@ -1,0 +1,32 @@
+run_service = Process(
+  name = 'run_service',
+  cmdline = '''
+    chmod +x ./gate-keeping-service.pex &&
+    unzip ./gate-keeping-service.pex &&
+    unzip -o ./gate-keeping-service-res.zip &&
+    ./gate-keeping-service.pex --port {{thermos.ports[http]}} --env {{environment}}
+  ''')
+
+stage_src = Packer.copy('gate-keeping-service')
+stage_res = Packer.copy('gate-keeping-service-res')
+
+task = SequentialTask(
+  name = 'gate-keeping-service',
+  processes = [stage_src, stage_res, run_service],
+  resources = Resources(cpu = 2, ram = 8 * GB, disk = 1 * GB))
+
+job = Service(
+  name = 'gate-keeping-service',
+  task = task,
+  role = 'gate-keeping-services',
+  contact = 'CHANGE_ME',
+  announce = Announcer(),
+  constraints = job_constraints)
+
+jobs = [
+  job(cluster = 'dc1', environment = 'devel', instances = 1),
+  job(cluster = 'dc2a', environment = 'test', instances = 1),
+  job(cluster = 'dc2b', environment = 'test', instances = 1),
+  job(cluster = 'dc3a', environment = 'prod', instances = 1),
+  job(cluster = 'dc3b', environment = 'prod', instances = 1),
+]

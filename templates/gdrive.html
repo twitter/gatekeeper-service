@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/favicon.png" rel="icon">
+    <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/typeaheadjs.css" rel="stylesheet">
+    <style>
+        .panel {
+            border: 0;
+            box-shadow: none;
+        }
+    </style>
+    <title>twExit</title>
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+{% block options %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <form class="form-inline" id="gdrive-form" method="post" action="/gdrive">
+            <div class="form-group" id="ldap-users">
+                {{ form.csrf_token }}
+                <div class="row">
+                    <div class="col-md-4">{{ form.USER_ID(class_="form-control typeahead", placeholder="Enter LDAP user name", size=40) }}</div>
+                    <div class="col-md-2"> </div>
+                    {% if form["USER_ID"].data %}
+                    <div class="col-md-4">{{ form.FILE_SEARCH(class_="form-control", placeholder="File Search", size=28) }}</div>
+                    <div class="col-md-2"><button class="btn btn-default" id="search-button" type="submit" data-loading-text="Searching...">Search files</button></div>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-body">
+        <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <p class="text-warning">{{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <form class="form-inline" id="files-form" method="post" action="/gdrive">
+          {{ form.csrf_token }}
+          <table class="table table-condensed">
+              <tr>
+                  <td class="col-md-8">
+                      <div class="panel panel-primary" style="height: 500px;">
+                          {% if user_info %}
+                              <div class="row">
+                                  <div class="col-md-10">
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Name:</strong></div>
+                                          <div class="col-md-9">{{ user_info['first_name'] }} {{ user_info['last_name'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Role:</strong></div>
+                                          <div class="col-md-9">{{ user_info['title'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Team:</strong></div>
+                                          <div class="col-md-9">{{ user_info['department'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Org:</strong></div>
+                                          <div class="col-md-9">{{ user_info['org_role'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Location:</strong></div>
+                                          <div class="col-md-9">{{ user_info['office'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Start date:</strong></div>
+                                          <div class="col-md-9">{{ user_info['start_date'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>LDAP UID:</strong></div>
+                                          <div class="col-md-9">{{ user_info['uid_number'] }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>LDAP groups:</strong></div>
+                                          <div class="col-md-9">
+                                              {% for group in user_info['member_of'] %}{{ group }} {% endfor %}
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-3"><strong>Status:</strong></div>
+                                          <div class="col-md-9">
+                                              {% if user_info['suspended'] %}
+                                                  <span class="text-danger">INACTIVE</span>
+                                              {% else %}
+                                                  <span class="text-info">ACTIVE</span>
+                                              {% endif %}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <img src="{{ user_info['thumbnail_image_url'] }}" class="img-circle" width="100" height="100">
+                                  </div>
+                              </div>
+                              <br>
+                              {% if files %}
+                                <div class="row text-center">
+                                  <h4><strong>Select the file(s) you want to transfer to a new owner</strong></h4>
+                                </div>
+                                <div class="row">
+                                    <div id="fileOptions">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <td class="col-md-1"><strong>Select</strong></td>
+                                                <td class="col-md-4"><strong>Name</strong></td>
+                                                <td class="col-md-5"><strong>Type</strong></td>
+                                                <td class="col-md-2"></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for file in files %}
+                                            <tr>
+                                                <td class="col-md-1"><input type="checkbox" name="{{file['id']}}"></td>
+                                                <td class="col-md-4">{{ file["name"] }}</td>
+                                                <td class="col-md-5">{{ file["mimeType"] }}</td>
+                                                <td class="col-md-2">
+                                                    {% if file["chown"] %}
+                                                        {% if file["chown"] == "False" %}
+                                                            <span class="text-danger">FAILED</span>
+                                                        {% else %}
+                                                            <span class="text-success">SUCCESS</span>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            <tr>
+                                              <td class="col-md-1"><input type="checkbox" id="select-all"></td>
+                                              <td class="col-md-4">Select ALL files.</td>
+                                              <td class="col-md-5"> </td>
+                                              <td class="col-md-2"> </td>
+                                            </td>
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                  </div>
+                                  <div class="row" id="new-files-owner">
+                                      <div class="col-md-2">{{ form.NEW_OWNER(class_="form-control typeahead", placeholder="New owner", size=20) }}</div>
+                                      <div class="col-md-10" id="data">
+                                          <input type="hidden" name="USER_ID" value="{{form['USER_ID'].data}}">
+                                          Select new owner, then hit Submit to transfer file ownerships.
+                                          <button class="btn btn-default" id="button" type="submit" data-loading-text="Loading...">Submit</button>
+                                      </div>
+                                  </div>
+                                {% endif %}
+                                {% if files|length == 0 and form["FILE_SEARCH"].data %}
+                                  <div class="row">
+                                    <div class="col-md-12 text-center text-warning">No files were found matching your query.</div>
+                                  </div>
+                                {% endif %}
+                          {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+{% endblock %}
+
+<script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+<script src="/static/js/twexit.js"></script>
+<script type="text/javascript">
+
+    {% block ldap_users %}
+    var users = {{ users|safe }};
+    {% endblock %}
+
+    typeaheadRun("#ldap-users", "users", users);
+    typeaheadRun("#new-files-owner", "users", users);
+
+    typeaheadSubmitFormOnSelect("#ldap-users", "#gdrive-form");
+    disableEnterKey("#gdrive-form");
+    disableEnterKey("#files-form");
+
+    selectAllCheckboxes("#select-all", "#fileOptions");
+
+    showLoadingState("#search-button");
+    showLoadingState("#button");
+
+</script>
+
+</body>
+</html>
