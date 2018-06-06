@@ -21,7 +21,7 @@ import json
 import os
 
 
-app.set_name = "gate-keeping-service"
+app.set_name = "gatekeeper"
 app.add_option("-p", "--port", type="int", default=5000)
 app.add_option("-e", "--env", type="str", default="testing")
 config = HelperFunctions().read_config_from_yaml()
@@ -218,16 +218,13 @@ def offboard_get(session_id):
 
 @webapp.route("/", methods=["GET", "POST"])
 def index():
-  try:
-    cookie = request.elfowl_cookie
-    user = cookie.user
-  except AttributeError:
-    user = "demo"
+  # TODO(): implement authentication mechanism
+  user = "GateKeeper"
   log.info("Accessed by: %s" % user)
 
   form = OffboardForm()
   user_info = None
-  default_ooo_msg = DEFAULT_OOO_MSG
+  default_ooo_msg = None
 
   if request.method == "POST":
     user_id = form.data["USER_ID"]
@@ -236,7 +233,7 @@ def index():
       if user_is_valid:
         user_info = ldap_client.get_user_info(user_id)
         user_info["active"] = ldap_client.is_active_user(user_id)
-        default_ooo_msg = ("I am no longer an employee here. Please resend your message to %s. "
+        default_ooo_msg = ("Hello. I no longer work here. Please resend your message to %s. "
                            "Thank you" % (user_info["manager"]))
         form.OOO_MSG_TEXT.data = default_ooo_msg
       else:

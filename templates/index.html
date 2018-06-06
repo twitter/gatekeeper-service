@@ -49,6 +49,11 @@
                     <td class="col-md-4">
                         <dl id="formOptions">
                             {{ form.csrf_token }}
+                            <div>
+                                <input type="checkbox" id="select-all"> <label for="select-all">Perform ALL actions</label>
+                            </div>
+                            <br>
+                            <br>
                             <p><strong>Google Directory</strong></p>
                             {% for field in form if field.name in google_admin_actions %}
                                 {{ field(class_="checkbox") }} {{ field.label }}
@@ -93,16 +98,6 @@
                             <br>
                             {% endfor %}
                             <br>
-                            <p><strong>DUO Mobile</strong></p>
-                            {% for field in form if field.name in duo_actions %}
-                            {{ field(class_="checkbox") }} {{ field.label }}
-                            <br>
-                            {% endfor %}
-                            <br>
-                            <br>
-                            <div>
-                                <input type="checkbox" id="select-all"> <label for="select-all">Perform ALL actions</label>
-                            </div>
                         </dl>
                     </td>
                     <td class="col-md-8">

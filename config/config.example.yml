@@ -39,7 +39,7 @@ pagerduty:
   api_key: "CHANGE_ME"
 
 google_apps:
-  admin_user: "gate-keeping-admin"
+  admin_user: "gatekeeper-admin"
   domain: "testdomain.com"
   credentials_keyfile: "google_api_service_account_keyfile.json"
   api_scopes:

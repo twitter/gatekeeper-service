@@ -1,6 +1,6 @@
 python_binary(
-  name = "gate-keeping-service",
-  source = "gate_keeping_service.py",
+  name = "gatekeeper",
+  source = "gatekeeper.py",
   zip_safe = False,
   dependencies = [
     ":gatekeeper_dependencies",
