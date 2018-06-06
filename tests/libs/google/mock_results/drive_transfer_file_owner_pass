@@ -1,0 +1,7 @@
+{
+ "kind": "drive#permission",
+ "id": "01193435495075157756",
+ "type": "user",
+ "role": "owner"
+}
+

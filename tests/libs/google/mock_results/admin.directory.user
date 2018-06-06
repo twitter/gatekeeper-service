@@ -1,0 +1,131 @@
+[{
+ 	u 'agreedToTerms': True,
+ 	u 'kind': u 'admin#directory#user',
+ 	u 'name': {
+ 		u 'fullName': u 'Harry Kantas',
+ 		u 'givenName': u 'Harry',
+ 		u 'familyName': u 'Kantas'
+ 	},
+ 	u 'ipWhitelisted': False,
+ 	u 'creationTime': u '2016-01-21T18:03:29.000Z',
+ 	u 'primaryEmail': u 'hkantas@testdomain.com',
+ 	u 'changePasswordAtNextLogin': False,
+ 	u 'isDelegatedAdmin': False,
+ 	u 'isMailboxSetup': True,
+ 	u 'includeInGlobalAddressList': True,
+ 	u 'etag': u '"mVtRK5AeRZHHotPwF4vAn-nsx7I/HypPBIoWGiKxHfSNNZ5DQ24BuKU"',
+ 	u 'suspended': False,
+ 	u 'id': u '108700750363721028501',
+ 	u 'lastLoginTime': u '2016-08-12T18:23:53.000Z',
+ 	u 'customerId': u 'C00sl2ia7',
+ 	u 'emails': [{
+ 		u 'primary': True,
+ 		u 'address': u 'hkantas@testdomain.com'
+ 	}],
+ 	u 'orgUnitPath': u '/',
+ 	u 'isAdmin': True
+ }, {
+ 	u 'agreedToTerms': True,
+ 	u 'kind': u 'admin#directory#user',
+ 	u 'name': {
+ 		u 'fullName': u 'Paul Hewson',
+ 		u 'givenName': u 'Paul',
+ 		u 'familyName': u 'Hewson'
+ 	},
+ 	u 'ipWhitelisted': False,
+ 	u 'creationTime': u '2016-01-21T18:03:29.000Z',
+ 	u 'primaryEmail': u 'phewson@testdomain.com',
+ 	u 'changePasswordAtNextLogin': False,
+ 	u 'isDelegatedAdmin': False,
+ 	u 'isMailboxSetup': True,
+ 	u 'includeInGlobalAddressList': True,
+ 	u 'etag': u '"mVtRK5AeRZHHotPwF4vAn-nsx7I/HypPBIoWGiKxHfSNNZ5DQ24BuKU"',
+ 	u 'suspended': False,
+ 	u 'id': u '108700750363721028502',
+ 	u 'lastLoginTime': u '2016-08-12T18:23:53.000Z',
+ 	u 'customerId': u 'C00sl2ia7',
+ 	u 'emails': [{
+ 		u 'primary': True,
+ 		u 'address': u 'phewson@testdomain.com'
+ 	}],
+ 	u 'orgUnitPath': u '/',
+ 	u 'isAdmin': True
+ }, {
+ 	u 'agreedToTerms': True,
+ 	u 'kind': u 'admin#directory#user',
+ 	u 'name': {
+ 		u 'fullName': u 'Dave Evans',
+ 		u 'givenName': u 'Dave',
+ 		u 'familyName': u 'Evans'
+ 	},
+ 	u 'ipWhitelisted': False,
+ 	u 'creationTime': u '2016-01-21T18:03:29.000Z',
+ 	u 'primaryEmail': u 'devans@testdomain.com',
+ 	u 'changePasswordAtNextLogin': False,
+ 	u 'isDelegatedAdmin': False,
+ 	u 'isMailboxSetup': True,
+ 	u 'includeInGlobalAddressList': True,
+ 	u 'etag': u '"mVtRK5AeRZHHotPwF4vAn-nsx7I/HypPBIoWGiKxHfSNNZ5DQ24BuKU"',
+ 	u 'suspended': False,
+ 	u 'id': u '108700750363721028503',
+ 	u 'lastLoginTime': u '2016-08-12T18:23:53.000Z',
+ 	u 'customerId': u 'C00sl2ia7',
+ 	u 'emails': [{
+ 		u 'primary': True,
+ 		u 'address': u 'devans@testdomain.com'
+ 	}],
+ 	u 'orgUnitPath': u '/',
+ 	u 'isAdmin': True
+ }, {
+ 	u 'agreedToTerms': True,
+ 	u 'kind': u 'admin#directory#user',
+ 	u 'name': {
+ 		u 'fullName': u 'Adam Clayton',
+ 		u 'givenName': u 'Adam',
+ 		u 'familyName': u 'Clayton'
+ 	},
+ 	u 'ipWhitelisted': False,
+ 	u 'creationTime': u '2016-01-21T18:03:29.000Z',
+ 	u 'primaryEmail': u 'aclayton@testdomain.com',
+ 	u 'changePasswordAtNextLogin': False,
+ 	u 'isDelegatedAdmin': False,
+ 	u 'isMailboxSetup': True,
+ 	u 'includeInGlobalAddressList': True,
+ 	u 'etag': u '"mVtRK5AeRZHHotPwF4vAn-nsx7I/HypPBIoWGiKxHfSNNZ5DQ24BuKU"',
+ 	u 'suspended': False,
+ 	u 'id': u '108700750363721028504',
+ 	u 'lastLoginTime': u '2016-08-12T18:23:53.000Z',
+ 	u 'customerId': u 'C00sl2ia7',
+ 	u 'emails': [{
+ 		u 'primary': True,
+ 		u 'address': u 'aclayton@testdomain.com'
+ 	}],
+ 	u 'orgUnitPath': u '/',
+ 	u 'isAdmin': True
+ }, {
+ 	u 'agreedToTerms': True,
+ 	u 'kind': u 'admin#directory#user',
+ 	u 'name': {
+ 		u 'fullName': u 'Larry Mullen',
+ 		u 'givenName': u 'Larry',
+ 		u 'familyName': u 'Mullen'
+ 	},
+ 	u 'ipWhitelisted': False,
+ 	u 'creationTime': u '2016-01-21T18:03:29.000Z',
+ 	u 'primaryEmail': u 'lmullen@testdomain.com',
+ 	u 'changePasswordAtNextLogin': False,
+ 	u 'isDelegatedAdmin': False,
+ 	u 'isMailboxSetup': True,
+ 	u 'includeInGlobalAddressList': True,
+ 	u 'etag': u '"mVtRK5AeRZHHotPwF4vAn-nsx7I/HypPBIoWGiKxHfSNNZ5DQ24BuKU"',
+ 	u 'suspended': False,
+ 	u 'id': u '108700750363721028505',
+ 	u 'lastLoginTime': u '2016-08-12T18:23:53.000Z',
+ 	u 'customerId': u 'C00sl2ia7',
+ 	u 'emails': [{
+ 		u 'primary': True,
+ 		u 'address': u 'lmullen@testdomain.com'
+ 	}],
+ 	u 'orgUnitPath': u '/',
+ 	u 'isAdmin': True
+ }]

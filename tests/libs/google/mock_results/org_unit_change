@@ -1,0 +1,33 @@
+{
+ "kind": "admin#directory#user",
+ "id": "117737896912012196849",
+ "etag": "\"YDi4yMhknQ5-kwx7j9TvuW4RFwg/q3-Nk83Kj2fBXz-XFLVYh1MRfTs\"",
+ "primaryEmail": "stillings@testdomain.com",
+ "name": {
+  "givenName": "Alex",
+  "familyName": "Stillings",
+  "fullName": "Alex Stillings"
+ },
+ "isAdmin": false,
+ "isDelegatedAdmin": false,
+ "lastLoginTime": "2017-03-14T04:00:32.000Z",
+ "creationTime": "2016-01-14T17:23:51.000Z",
+ "agreedToTerms": true,
+ "suspended": true,
+ "suspensionReason": "ADMIN",
+ "changePasswordAtNextLogin": false,
+ "ipWhitelisted": false,
+ "emails": [
+  {
+   "address": "stillings@testdomain.com",
+   "primary": true
+  }
+ ],
+ "aliases": [
+  "still@testdomain.com"
+ ],
+ "customerId": "C00sl2ia7",
+ "isMailboxSetup": true,
+ "includeInGlobalAddressList": true
+}
+

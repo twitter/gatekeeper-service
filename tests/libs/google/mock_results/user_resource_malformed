@@ -1,0 +1,31 @@
+{
+  "agreedToTerms": true,
+  "kind": "admin#directory#user",
+  "includeInGlobalAddressList": true,
+  "name": {
+    "fullName": "Harry Kantas",
+    "givenName": "Harry",
+    "familyName": "Kantas"
+  },
+  "ipWhitelisted": false,
+  "creationTime": "2016-01-14T17:23:51.000Z",
+  "primaryEmail": "stillings@testdomain.com",
+  "emails": [
+    {
+      "primary": true,
+      "address": "stillings@testdomain.com"
+    },
+    {
+      "address": "still@testdomain.com"
+    }
+  ],
+  "changePasswordAtNextLogin": false,
+  "isDelegatedAdmin": false,
+  "isMailboxSetup": true,
+  "isAdmin": false,
+  "id": "117737896912012196849",
+  "orgUnitPath": "/",
+  "aliases": [
+    "harry@testdomain.com"
+  ]
+}

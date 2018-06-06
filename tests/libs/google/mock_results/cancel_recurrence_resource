@@ -1,0 +1,33 @@
+{
+ "kind": "calendar#event",
+ "etag": "\"2983717123522000\"",
+ "id": "e2i9ln9qjl3eo9ejgb3484bh78",
+ "status": "confirmed",
+ "htmlLink": "https://www.google.com/calendar/event?eid=ZTJpOWxuOXFqbDNlbzllamdiMzQ4NGJoNzhfMjAxNzA0MDNUMjMwMDAwWiBzdGlsbGlu23NAZ3Rlc3QudHdpdHRlci5jb20",
+ "created": "2017-04-10T20:40:11.000Z",
+ "updated": "2017-04-10T21:09:21.761Z",
+ "summary": "Harry - Some Event",
+ "creator": {
+  "email": "mclinton@testdomain.com"
+ },
+ "organizer": {
+  "email": "hkantas@testdomain.com",
+  "self": true
+ },
+ "start": {
+  "dateTime": "2017-04-03T16:00:00-07:00",
+  "timeZone": "America/Los_Angeles"
+ },
+ "end": {
+  "dateTime": "2017-04-03T17:00:00-07:00",
+  "timeZone": "America/Los_Angeles"
+ },
+ "recurrence": [
+  "RRULE:FREQ=WEEKLY;UNTIL=20170410T210921Z;BYDAY=MO"
+ ],
+ "iCalUID": "e2i9ln9qjl3eo9ejgb3484bh78@google.com",
+ "sequence": 4,
+ "reminders": {
+  "useDefault": true
+ }
+}

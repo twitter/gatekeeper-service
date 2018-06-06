@@ -1,0 +1,20 @@
+{
+ "kind": "admin#directory#tokenList",
+ "etag": "\"lC5l2xZhzgy1zYIWApDice-fN_A/yGP-wrO0gkoc-jgMteM8YIuvawU\"",
+ "items": [
+  {
+   "kind": "admin#directory#token",
+   "etag": "\"lC5l2xZhzgy1zYIWApDice-fN_A/djLeYUTWZzjSV1hJ3iVUlFGjK6w\"",
+   "clientId": "1011230515163-arsl01gv134b0sjidu62bkp3hub3nuj3.apps.googleusercontent.com",
+   "displayText": "OpenTable",
+   "anonymous": false,
+   "nativeApp": false,
+   "userKey": "117737896912012196849",
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ ]
+}
+

@@ -1,0 +1,6 @@
+{
+ "recurrence": [
+  "RRULE:FREQ=WEEKLY;BYDAY=MO"
+ ]
+}
+

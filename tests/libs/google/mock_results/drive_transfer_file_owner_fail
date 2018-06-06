@@ -1,0 +1,14 @@
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "invalidSharingRequest",
+    "message": "Bad Request. User message: \"You do not have permission to share these item(s): Carrier Targeting PMB/FAQ\""
+   }
+  ],
+  "code": 400,
+  "message": "Bad Request. User message: \"You do not have permission to share these item(s): Carrier Targeting PMB/FAQ\""
+ }
+}
+

@@ -20,10 +20,10 @@ python_library(
     "3rdparty/python:gevent",
     "3rdparty/python:greenlet",
     "3rdparty/python:pycrypto",
-    "lib:pagerduty",
-    "lib:google_api",
-    "lib:gunicorn_wrapper",
-    "lib:ldap_client"
+    "libs:pagerduty",
+    "libs:google_api",
+    "libs:gunicorn_wrapper",
+    "libs:ldap_client"
   ],
 )
 
@@ -41,9 +41,9 @@ python_library(
   dependencies = [
     "3rdparty/python:twitter.common.log",
     "3rdparty/python:pycrypto",
-    "lib:pagerduty",
-    "lib:google_api",
-    "lib:ldap_client"
+    "libs:pagerduty",
+    "libs:google_api",
+    "libs:ldap_client"
   ],
 )
 

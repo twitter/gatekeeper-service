@@ -1,0 +1,33 @@
+{
+ "kind": "admin#directory#aspList",
+ "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/dwh0vO4G7O5dNYOl9GFtPbPSerc\"",
+ "items": [
+  {
+   "kind": "admin#directory#asp",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/VHV-MUiTDEVQh9cpoNoYWqbubJw\"",
+   "codeId": 0,
+   "name": "Mail on my iPhone",
+   "creationTime": "1468452010432",
+   "lastTimeUsed": "1468452095000",
+   "userKey": "105930792424411065789"
+  },
+  {
+   "kind": "admin#directory#asp",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/CwoSbD9TIJcjNChah7oo5uLuWtY\"",
+   "codeId": 2,
+   "name": "Calendar on my BlackBerry",
+   "creationTime": "1477721946980",
+   "lastTimeUsed": "0",
+   "userKey": "105930792424411065789"
+  },
+  {
+   "kind": "admin#directory#asp",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/gVrQd4WfAEFTg5SXemOOoEQMWqE\"",
+   "codeId": 3,
+   "name": "YouTube on my iPhone",
+   "creationTime": "1477935410253",
+   "lastTimeUsed": "0",
+   "userKey": "105930792424411065789"
+  }
+ ]
+}

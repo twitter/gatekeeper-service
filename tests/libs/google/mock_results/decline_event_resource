@@ -1,0 +1,36 @@
+{
+ "kind": "calendar#event",
+ "etag": "\"2979949537698000\"",
+ "id": "fuccsmq6ipqmpeeb93e6bdvtc0",
+ "status": "confirmed",
+ "htmlLink": "https://www.google.com/calendar/event?eid=ZnVjY3NtcTZpcHFtcGVlYjkzZTZiZHZ0YzAgc3RpbGxpbmdzQGd0ZXN0LnR3aXR02XIuY29t",
+ "created": "2017-03-20T01:46:17.000Z",
+ "updated": "2017-03-20T01:52:48.849Z",
+ "summary": "Harry-Mat",
+ "creator": {
+  "email": "mat@testdomain.com"
+ },
+ "organizer": {
+  "email": "hkantas@testdomain.com",
+  "self": true
+ },
+ "start": {
+  "dateTime": "2017-03-19T19:00:00-07:00"
+ },
+ "end": {
+  "dateTime": "2017-03-19T20:00:00-07:00"
+ },
+ "iCalUID": "fuccsmq6ip1mpeeb93e6bdvtc0@google.com",
+ "sequence": 0,
+ "attendees": [
+  {
+   "email": "hkantas@testdomain.com",
+   "responseStatus": "declined"
+  }
+ ],
+ "hangoutLink": "https://meet.google.com/ccp-pjw1-ejb",
+ "reminders": {
+  "useDefault": true
+ }
+}
+

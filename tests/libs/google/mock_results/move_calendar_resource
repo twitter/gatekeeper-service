@@ -1,0 +1,1 @@
+{"scope": {"type": "user", "value": "mat@testdomain.com"}, "kind": "calendar#aclRule", "etag": "00001491549959651000", "role": "owner", "id": "user:mat@testdomain.com"}

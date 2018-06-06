@@ -46,7 +46,7 @@ cp config.example.yml config.yml
 ```
 4. Run the tests
 ```
-./pants test test::
+./pants test tests::
 ```
 5. Run the service
 ```

@@ -1,0 +1,34 @@
+{
+ "kind": "admin#directory#members",
+ "etag": "\"YDi4yMhknQ5-kwx7j9TvuW4RFwg/r22IFII7uSdOxgt1in6COQLMa78\"",
+ "members": [
+  {
+   "kind": "admin#directory#member",
+   "etag": "\"YDi4yMhknQ5-kwx7j9TvuW4RFwg/eLkIMJdbA2BRlH6suxQBw9OtNL8\"",
+   "id": "106864481816593370080",
+   "email": "hkantas@testdomain.com",
+   "role": "MEMBER",
+   "type": "USER",
+   "status": "ACTIVE"
+  },
+  {
+   "kind": "admin#directory#member",
+   "etag": "\"YDi4yMhknQ5-kwx7j9TvuW4RFwg/cx58LbP6UImWFfl8oihP8Qauyic\"",
+   "id": "114274569748888155325",
+   "email": "phewson@testdomain.com",
+   "role": "MEMBER",
+   "type": "USER",
+   "status": "ACTIVE"
+  },
+  {
+   "kind": "admin#directory#member",
+   "etag": "\"YDi4yMhknQ5-kwx7j9TvuW4RFwg/lwyMzUgBvjdh7bMZvaxkUWaVyqo\"",
+   "id": "109786339485749300084",
+   "email": "larry@testdomain.com",
+   "role": "MEMBER",
+   "type": "USER",
+   "status": "ACTIVE"
+  }
+ ]
+}
+

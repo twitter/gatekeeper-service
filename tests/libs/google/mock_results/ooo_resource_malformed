@@ -1,0 +1,5 @@
+{
+ "responseSubject": "OOO message",
+ "responseBodyHtml": "&quot;I am no longer here. &quot;\n                          &quot;Please resend your message to <a href=\"mailto:blah@testdomain.com\" target=\"_blank\">blah@testdomain.com</a>. Thank You.&quot;",
+ "restrictToDomain": false
+}

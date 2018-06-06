@@ -1,0 +1,41 @@
+{
+ "kind": "calendar#event",
+ "etag": "\"2979918629470000\"",
+ "id": "ltk5efr9set0qaogfnpapgvcec",
+ "status": "confirmed",
+ "htmlLink": "https://www.google.com/calendar/event?eid=bHRrNWVmcjlzZXQwcWFvZ2ZucGFwZ3ZjZWMgbWF0QGd0ZXN0LnR3aXR0ZXIuY29t",
+ "created": "2016-11-17T17:56:43.000Z",
+ "updated": "2017-03-19T21:35:14.735Z",
+ "summary": "Harry Test",
+ "creator": {
+  "email": "mat@testdomain.com",
+  "self": true
+ },
+ "organizer": {
+  "email": "stillings@testdomain.com"
+ },
+ "start": {
+  "dateTime": "2016-11-17T17:30:00-08:00"
+ },
+ "end": {
+  "dateTime": "2016-11-17T18:30:00-08:00"
+ },
+ "iCalUID": "ltk5efr9set0qaogfnpapgvcec@google.com",
+ "sequence": 0,
+ "attendees": [
+  {
+   "email": "mat@testdomain.com",
+   "self": true,
+   "responseStatus": "accepted"
+  },
+  {
+   "email": "hkantas@testdomain.com",
+   "responseStatus": "needsAction"
+  }
+ ],
+ "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/mat?hceid=bWF0QGd0ZXN0LnR3aXR0ZXIuY29t.ltk5efr9set0qaogfnpapgvcec",
+ "reminders": {
+  "useDefault": true
+ }
+}
+

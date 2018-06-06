@@ -1,0 +1,14 @@
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "notFound",
+    "message": "Resource Not Found: userKey"
+   }
+  ],
+  "code": 404,
+  "message": "Resource Not Found: userKey"
+ }
+}
+

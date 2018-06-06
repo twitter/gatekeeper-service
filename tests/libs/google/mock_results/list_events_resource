@@ -1,0 +1,436 @@
+{
+ "kind": "calendar#events",
+ "etag": "\"p3208dfuisiot00g\"",
+ "summary": "stillings@testdomain.com",
+ "updated": "2016-11-18T07:31:11.456Z",
+ "timeZone": "America/Los_Angeles",
+ "defaultReminders": [
+ ],
+ "nextSyncToken": "CICGv9LksdACEICGv9LksdACGAY=",
+ "items": [
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958570239480000\"",
+   "id": "fl0r4ospko0k57haokqnvq1mqk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZmwwcjRvc3BrbzBrNTdoYW9rcW52cTFtcWsgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-15T19:31:18.000Z",
+   "updated": "2016-11-16T08:31:59.740Z",
+   "summary": "Still test",
+   "location": "Greg-Office",
+   "creator": {
+    "email": "mat@testdomain.com"
+   },
+   "organizer": {
+    "email": "mat@testdomain.com"
+   },
+   "start": {
+    "dateTime": "2016-11-15T12:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-15T13:00:00-08:00"
+   },
+   "iCalUID": "fl0r4ospko0k57haokqnvq1mqk@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "mat@testdomain.com",
+     "organizer": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "testdomain.com_2d3332373230343333383633@resource.calendar.google.com",
+     "displayName": "Greg-Meditation Room",
+     "resource": true,
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "self": true,
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "testdomain.com_2d3933363932373230323435@resource.calendar.google.com",
+     "displayName": "Greg-Office",
+     "resource": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "gtest@testdomain.com",
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "grege@testdomain.com",
+     "displayName": "gegbuogu@testdomain.com",
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "mat@testdomain.com",
+     "responseStatus": "needsAction"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/mat-stillings?hceid=bWF0QGd0ZXN0LnR3aXR0ZXIuY29t.fl0r4ospko0k57haokqnvq1mqk",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958810848070000\"",
+   "id": "ltk5efr9set0qaogfnpapgvcec",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bHRrNWVmcjlzZXQwcWFvZ2ZucGFwZ3ZjZWMgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-17T17:56:43.000Z",
+   "updated": "2016-11-17T17:57:04.035Z",
+   "summary": "Harry Test",
+   "creator": {
+    "email": "mat@testdomain.com"
+   },
+   "organizer": {
+    "email": "mat@testdomain.com"
+   },
+   "start": {
+    "dateTime": "2016-11-17T17:30:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-17T18:30:00-08:00"
+   },
+   "iCalUID": "ltk5efr9set0qaogfnpapgvcec@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "mat@testdomain.com",
+     "organizer": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "hkantas@testdomain.com",
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "self": true,
+     "responseStatus": "needsAction"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/mat?hceid=bWF0QGd0ZXN0LnR3aXR0ZXIuY29t.ltk5efr9set0qaogfnpapgvcec",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958840715720000\"",
+   "id": "f5srj9o80d5l0psb3tj4790t98",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZjVzcmo5bzgwZDVsMHBzYjN0ajQ3OTB0OTggc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-17T22:04:14.000Z",
+   "updated": "2016-11-17T22:05:57.860Z",
+   "summary": "Josef weekly standup",
+   "location": "DUBTEST-1 #Room3 (9, Hangouts)",
+   "creator": {
+    "email": "mat@testdomain.com"
+   },
+   "organizer": {
+    "email": "mat@testdomain.com"
+   },
+   "start": {
+    "dateTime": "2016-11-18T12:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T13:00:00-08:00"
+   },
+   "iCalUID": "f5srj9o80d5l0psb3tj4790t98@google.com",
+   "sequence": 1,
+   "attendees": [
+    {
+     "email": "josef@testdomain.com",
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "mat@testdomain.com",
+     "organizer": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "self": true,
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "hkantas@testdomain.com",
+     "responseStatus": "needsAction"
+    },
+    {
+     "email": "testdomain.com_445542544553542d312d526f6f6d33@resource.calendar.google.com",
+     "displayName": "DUBTEST-1 #Room3 (9, Hangouts)",
+     "resource": true,
+     "responseStatus": "accepted"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/mat?hceid=bWF0QGd0ZXN0LnR3aXR0ZXIuY29t.f5srj9o80d5l0psb3tj4790t98",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958867475396000\"",
+   "id": "atphfbhejenb58gf4tervfg7qk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YXRwaGZiaGVqZW5iNThnZjR0ZXJ2Zmc3cWsgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T01:48:57.000Z",
+   "updated": "2016-11-18T01:48:57.698Z",
+   "summary": "Test",
+   "creator": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2016-11-17T19:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-17T20:00:00-08:00"
+   },
+   "iCalUID": "atphfbhejenb58gf4tervfg7qk@google.com",
+   "sequence": 0,
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/stillings?hceid=c3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t.atphfbhejenb58gf4tervfg7qk",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958868431654000\"",
+   "id": "ksk6hnh8lbe0qdn02tc1vsp7qk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=a3NrNmhuaDhsYmUwcWRuMDJ0YzF2c3A3cWsgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T01:56:55.000Z",
+   "updated": "2016-11-18T01:56:55.827Z",
+   "summary": "mock test",
+   "creator": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2016-11-18T16:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T17:00:00-08:00"
+   },
+   "iCalUID": "ksk6hnh8lbe0qdn02tc1vsp7qk@google.com",
+   "sequence": 0,
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/stillings?hceid=c3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t.ksk6hnh8lbe0qdn02tc1vsp7qk",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958906981640000\"",
+   "id": "7ioqinv6g4gtga26ndlmap274o",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=N2lvcWludjZnNGd0Z2EyNm5kbG1hcDI3NG8gc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T07:15:52.000Z",
+   "updated": "2016-11-18T07:18:10.820Z",
+   "summary": "GateKeeper Test",
+   "creator": {
+    "email": "mat@testdomain.com"
+   },
+   "organizer": {
+    "email": "mat@testdomain.com"
+   },
+   "start": {
+    "dateTime": "2016-11-18T11:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T12:00:00-08:00"
+   },
+   "iCalUID": "7ioqinv6g4gtga26ndlmap274o@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "mat@testdomain.com",
+     "organizer": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "self": true,
+     "responseStatus": "needsAction"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/mat-stillings?hceid=bWF0QGd0ZXN0LnR3aXR0ZXIuY29t.7ioqinv6g4gtga26ndlmap274o",
+   "guestsCanModify": true,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958907514188000\"",
+   "id": "704cb7sf3mudrlgstv7uvvjppg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NzA0Y2I3c2YzbXVkcmxnc3R2N3V2dmpwcGcgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T07:21:33.000Z",
+   "updated": "2016-11-18T07:22:37.094Z",
+   "summary": "Engineering All Hands",
+   "location": "DUB-1 #HelloWorld (4,Hangouts)",
+   "creator": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2016-11-18T09:30:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T10:30:00-08:00"
+   },
+   "iCalUID": "704cb7sf3mudrlgstv7uvvjppg@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "testdomain.com_4455422d312d48656c6c6f576f726c64@resource.calendar.google.com",
+     "displayName": "DUB-1 #HelloWorld (4,Hangouts)",
+     "resource": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "organizer": true,
+     "self": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "gegbuogu@testdomain.com",
+     "responseStatus": "needsAction"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/stillings?hceid=c3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t.704cb7sf3mudrlgstv7uvvjppg",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958907645290000\"",
+   "id": "88ujhosjrqnodemp39kakmln1s",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ODh1amhvc2pycW5vZGVtcDM5a2FrbWxuMXMgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T07:23:28.000Z",
+   "updated": "2016-11-18T07:23:42.645Z",
+   "summary": "Friday 4 Goods",
+   "location": "PAR-1 Bonjour, TST-0 #FridayForGood (2,Hangouts)",
+   "creator": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2016-11-18T13:30:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T14:30:00-08:00"
+   },
+   "iCalUID": "88ujhosjrqnodemp39kakmln1s@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "testdomain.com_70617231626f6e6a6f7572@resource.calendar.google.com",
+     "displayName": "PAR-1 Bonjour",
+     "resource": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "testdomain.com_5453542d302d467269646179466f72476f6f64@resource.calendar.google.com",
+     "displayName": "TST-0 #FridayForGood (2,Hangouts)",
+     "resource": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "organizer": true,
+     "self": true,
+     "responseStatus": "accepted"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/stillings?hceid=c3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t.88ujhosjrqnodemp39kakmln1s",
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+
+   "kind": "calendar#event",
+   "etag": "\"2958907729970000\"",
+   "id": "40pg6lgt3rircei8drnl4hv8n4",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NDBwZzZsZ3QzcmlyY2VpOGRybmw0aHY4bjQgc3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t",
+   "created": "2016-11-18T07:24:01.000Z",
+   "updated": "2016-11-18T07:24:24.985Z",
+   "summary": "Hackerweeks",
+   "location": "Acme Inc. Business Calendar",
+   "creator": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "organizer": {
+    "email": "stillings@testdomain.com",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2016-11-18T15:00:00-08:00"
+   },
+   "end": {
+    "dateTime": "2016-11-18T16:00:00-08:00"
+   },
+   "iCalUID": "40pg6lgt3rircei8drnl4hv8n4@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "testdomain.com_627573696e6573732d63616c656e646172@resource.calendar.google.com",
+     "displayName": "Acme Inc. Business Calendar",
+     "resource": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "stillings@testdomain.com",
+     "organizer": true,
+     "self": true,
+     "responseStatus": "accepted"
+    },
+    {
+     "email": "mattest@testdomain.com",
+     "responseStatus": "needsAction"
+    }
+   ],
+   "hangoutLink": "https://plus.google.com/hangouts/_/testdomain.com/stillings?hceid=c3RpbGxpbmdzQGd0ZXN0LnR3aXR0ZXIuY29t.40pg6lgt3rircei8drnl4hv8n4",
+   "reminders": {
+    "useDefault": true
+   }
+  }
+ ]
+}

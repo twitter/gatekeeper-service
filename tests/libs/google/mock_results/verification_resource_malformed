@@ -1,0 +1,58 @@
+{
+ "kind": "admin#directory#verificationCodesList",
+ "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/sXIryHxh0VYqf83Uv2msDj-2ICs\"",
+ "items": [
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/tqC4jDhcV9K5IcugymYr5nItYQM\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/v9jcmKHZHFKn_bcEDTnJzVNR3Ks\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/mOf9uo2mwlggWAwUGjpIwtKF43g\"",
+   "userId": "105930792424411065789",
+   "verificationCode": "###############"
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/ch_6oFq1jxXRLYhFf5lOPgayY9A\"",
+   "userId": "105930792424411065789",
+   "verificationCode": "#######"
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/DrkGeW9jRhPTI_oqX7YKtbDcg70\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/4wnMEnpl-xY-f81kgzI5ddIT8QQ\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/1AdpLOnP2njXdSfAmZvA6qW-_0k\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/h1jdFuiT5P8IBscLmxLjzjrfV4s\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/zNQYadR5YrQXkRbWPZBz8NBngUQ\"",
+   "userId": "105930792424411065789",
+  },
+  {
+   "kind": "admin#directory#verificationCode",
+   "etag": "\"mVtRK5AeRZHHotPwF4vAn-nsx7I/istdELt_EgosNvXFeTe1KlQHrWc\"",
+   "userId": "105930792424411065789",
+  }
+ ]
+}

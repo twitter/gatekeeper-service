@@ -1,0 +1,1 @@
+{"error": {"conflicts": [{"url": "/schedules/PCC3WPY", "type": "schedule", "id": "PCC3WPY", "name": "Gtest_Primary"}], "errors": ["The user cannot be deleted as they are currently in use"]}}
