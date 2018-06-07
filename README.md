@@ -9,11 +9,12 @@ The backend for this project is built with Flask and Jinja2 templating.
 
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
-3. [Support](#support)
-4. [Authors](#authors)
-5. [License](#license)
-6. [Security](#security-issues)
-7. [To-Do](#to-do)
+3. [Logs](#logging)
+4. [Support](#support)
+5. [Authors](#authors)
+6. [License](#license)
+7. [Security](#security-issues)
+8. [To-Do](#to-do)
 
 
 ## Prerequisites
@@ -38,12 +39,20 @@ git clone https://github.com/twitter/gate-keeping-service
 cd static
 bower install
 ```
-3. Create a copy of the file config.example.yml to config.yml
-   and modify the file to reflect your settings and API keys.
+
+3a. Create a copy of the file config.example.yml to config.yml and modify the file to reflect your settings and API keys.
+Consult the comments on each parameter in the config file, for a short description of their usage.
 ```
 cd config
 cp config.example.yml config.yml
 ```
+
+3b. For GateKeeper to be able to act as a user under your domain, you will need a Service Account with Domain-Wide Delegation of Authority.
+Click [here](https://developers.google.com/admin-sdk/directory/v1/guides/delegation) for a guide on how to obtain these credentials.
+(Follow the guides under sections "Create the service account and its credentials", and "Delegate domain-wide authority to your service account")
+A list of scopes needed for GateKeeper's operations can be found on the config.example.yml file.
+Once complete, place your google_api_service_account_keyfile.json file in config folder.
+
 4. Run the tests
 ```
 ./pants test tests::
@@ -52,6 +61,11 @@ cp config.example.yml config.yml
 ```
 ./pants run :gatekeeper
 ```
+
+## Logging
+
+Logs are stored under /var/tmp, and will persist system reboots.
+Be sure to include the relevant log line(s) with any issues submitted.
 
 ## Support
 
@@ -79,4 +93,3 @@ Please report sensitive security issues via Twitter's bug-bounty program (https:
 
 * Implement more services (DUO currently in testing).
 * Expose a REST API for services to talk to directly.
-* Document the config file options.
