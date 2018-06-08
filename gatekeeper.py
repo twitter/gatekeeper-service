@@ -99,7 +99,7 @@ def offboard_post(session_id):
     sub.put(params)
     log.info("adding to queue: %s" % params)
 
-  # TODO(harry): move this logic on the runner.
+  # TODO(): move this logic on the runner.
   def change_events_ownership(runner, grantee_user_id):
     if session_id not in subscriptions:
       subscriptions[session_id] = Queue()

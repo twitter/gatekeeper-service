@@ -11,7 +11,6 @@ from google.oauth import GoogleOAuthApi
 from helper_functions import HelperFunctions
 from ldap_client import LDAPClient
 from pagerduty import PagerDutyApi
-# from common.duo import DuoAdminApi
 
 config = HelperFunctions().read_config_from_yaml()
 
@@ -46,10 +45,6 @@ class Runner(object):
     self.pagerduty_api = PagerDutyApi(config=config["pagerduty"],
                                       use_proxy=self.use_proxy,
                                       proxy_config=config["defaults"]["http_proxy"])
-
-    # self.duo_api = DuoAdminApi(key_file=config["duo"],
-    #                            use_proxy=self.use_proxy,
-    #                            proxy_config_file=config["defaults"]["http_proxy"])
 
   def _is_valid_user(self):
     """

@@ -1,5 +1,4 @@
 defaults:
-  # Environment used. Choose between 'production' and 'testing'.
   environment: "testing"
   base_dir: "."
   use_https: false
@@ -14,9 +13,9 @@ defaults:
 
 ldap:
   base_dn: "CHANGE_ME"
-  pass: "CHANGE_ME"
   uri: "CHANGE_ME"
   user: "CHANGE_ME"
+  pass: "CHANGE_ME"
   queries:
     all_users: "CHANGE_ME"
     user_is_valid: "CHANGE_ME"
@@ -76,6 +75,7 @@ actions:
   duo: &duo
     REMOVE_FROM_DUO: false
 
+# This is where you can select the default options available for each action group.
 action_groups:
   offboard:
     <<: *google_admin
