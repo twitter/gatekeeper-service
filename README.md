@@ -121,6 +121,12 @@ ldap:
 pagerduty:
   base_url:                   string (example: "https://api.pagerduty.com/")
   api_key:                    string
+  
+duo:
+  host:                       string
+  ikey:                       string
+  skey:                       string
+  ca_certs:                  string
 
 google_apps:
   admin_user:                 string

@@ -60,7 +60,7 @@ t = LdapSyncThread(21600, ldap_client.sync_users)
 t.start()
 
 if ENV == "testing":
-  ldap_users = ["harry", "paul", "dave", "adam", "larry"]
+  ldap_users = ["harry", "paul", "dave", "adam", "larry", "stillings"]
 else:
   ldap_users = ldap_client.sync_users()
 
@@ -68,7 +68,7 @@ else:
 subscriptions = {}
 
 
-# TODO(harry): flash a message if oauth token is invalid.
+# TODO(): flash a message if oauth token is invalid.
 @webapp.route("/offboard/<string:session_id>", methods=["POST"])
 def offboard_post(session_id):
   log.info("publish: %s" % session_id)
@@ -77,6 +77,7 @@ def offboard_post(session_id):
   gmail_api_actions = []
   gcal_api_actions = []
   pagerduty_actions = []
+  duo_actions = []
   user_id = request.form.get("USER_ID")
   for (k, v) in request.form.items():
     if k in GOOGLE_ADMIN_ACTIONS:
@@ -87,6 +88,8 @@ def offboard_post(session_id):
       gcal_api_actions.append(k.lower())
     elif k in PAGERDUTY_ACTIONS:
       pagerduty_actions.append(k.lower())
+    elif k in DUO_ACTIONS:
+      duo_actions.append(k.lower())
     elif k == "LOST_ASSET":
       lost_asset = True
 
@@ -158,6 +161,9 @@ def offboard_post(session_id):
   for action in pagerduty_actions:
     gevent.spawn(run, runner, "pagerduty_api", action, {})
     log.info("spawned action: %s" % action)
+  for action in duo_actions:
+    gevent.spawn(run, runner, "duo_api", action, {})
+    log.info("spawned action: %s" % action)
   return "OK"
 
 
@@ -224,7 +230,6 @@ def index():
 
   form = OffboardForm()
   user_info = None
-  default_ooo_msg = None
 
   if request.method == "POST":
     user_id = form.data["USER_ID"]
@@ -253,7 +258,7 @@ def index():
                          google_gmail_actions=GOOGLE_GMAIL_ACTIONS,
                          google_calendar_actions=GOOGLE_CALENDAR_ACTIONS,
                          pagerduty_actions=PAGERDUTY_ACTIONS,
-                         default_ooo_msg=default_ooo_msg)
+                         duo_actions=DUO_ACTIONS)
 
 
 @webapp.route("/lost_asset", methods=["GET", "POST"])

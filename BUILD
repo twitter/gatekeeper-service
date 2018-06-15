@@ -12,18 +12,14 @@ python_library(
   sources = globs("*.py", "templates/*"),
   dependencies = [
     "3rdparty/python:twitter.common.app",
-    "3rdparty/python:twitter.common.log",
     "3rdparty/python:Flask",
     "3rdparty/python:Flask-WTF",
     "3rdparty/python:MarkupSafe",
     "3rdparty/python:WTForms",
     "3rdparty/python:gevent",
     "3rdparty/python:greenlet",
-    "3rdparty/python:pycrypto",
-    "libs:pagerduty",
-    "libs:google_api",
     "libs:gunicorn_wrapper",
-    "libs:ldap_client"
+    ":runner_dependencies",
   ],
 )
 
@@ -40,10 +36,11 @@ python_library(
   sources = globs("runner.py"),
   dependencies = [
     "3rdparty/python:twitter.common.log",
-    "3rdparty/python:pycrypto",
-    "libs:pagerduty",
+    "libs:helper_functions",
     "libs:google_api",
-    "libs:ldap_client"
+    "libs:ldap_client",
+    "libs:pagerduty",
+    "libs:duo_api"
   ],
 )
 

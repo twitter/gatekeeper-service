@@ -68,7 +68,7 @@
                                         <div class="form-group" id="ooo-msg-text">
                                             {{ form.OOO_MSG_TEXT.label }}
                                             <br>
-                                            {{ form.OOO_MSG_TEXT(class_="form-control", rows="4", cols="40", placeholder=default_ooo_msg) }}
+                                            {{ form.OOO_MSG_TEXT(class_="form-control", rows="4", cols="40", placeholder="Out Of Office Response") }}
                                         </div>
                                     </div>
                                 {% else %}
@@ -98,6 +98,11 @@
                             <br>
                             {% endfor %}
                             <br>
+                            <p><strong>DUO Mobile</strong></p>
+                            {% for field in form if field.name in duo_actions %}
+                            {{ field(class_="checkbox") }} {{ field.label }}
+                            <br>
+                            {% endfor %}
                         </dl>
                     </td>
                     <td class="col-md-8">

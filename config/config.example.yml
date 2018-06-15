@@ -37,6 +37,12 @@ pagerduty:
   base_url: "https://api.pagerduty.com/"
   api_key: "CHANGE_ME"
 
+duo:
+  host: "CHANGE_ME"
+  ikey: "CHANGE_ME"
+  skey: "CHANGE_ME"
+  ca_certs: "CHANGE_ME"
+
 google_apps:
   admin_user: "gatekeeper-admin"
   domain: "testdomain.com"
@@ -61,7 +67,7 @@ actions:
     ORG_UNIT_CHANGE: true
     ORG_UNIT_RESET: true
   google_gmail: &google_gmail
-    SET_OOO_MSG: false
+    SET_OOO_MSG: true
     DISABLE_IMAP: true
     DISABLE_POP: true
   google_calendar: &google_calendar
@@ -73,7 +79,7 @@ actions:
   pagerduty: &pagerduty
     REMOVE_FROM_ONCALLS: true
   duo: &duo
-    REMOVE_FROM_DUO: false
+    REMOVE_FROM_DUO: true
 
 # This is where you can select the default options available for each action group.
 action_groups:
