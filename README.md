@@ -100,7 +100,6 @@ A list of scopes needed for GateKeeper's operations can be found on the config.e
 
 ```yaml
 defaults:
-  environment:                string (options: ["testing", "production"])
   base_dir:                   string (base dir path)
   use_https:                  bool
   debug:                      bool

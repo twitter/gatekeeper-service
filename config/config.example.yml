@@ -1,5 +1,4 @@
 defaults:
-  environment: "testing"
   base_dir: "."
   use_https: false
   debug: true
@@ -17,7 +16,7 @@ ldap:
   user: "CHANGE_ME"
   pass: "CHANGE_ME"
   queries:
-    all_users: "CHANGE_ME"
+    all_users: ""
     user_is_valid: "CHANGE_ME"
     user_is_active: "CHANGE_ME"
     user_info: "(uid=USER)"

@@ -23,10 +23,7 @@ import os
 
 app.set_name = "gatekeeper"
 app.add_option("-p", "--port", type="int", default=5000)
-app.add_option("-e", "--env", type="str", default="testing")
 config = HelperFunctions().read_config_from_yaml()
-
-ENV = config["defaults"]["environment"]
 
 GOOGLE_ADMIN_ACTIONS = list(k for k,v in config["actions"]["google_admin"].items() if v is True)
 GOOGLE_GMAIL_ACTIONS = list(k for k,v in config["actions"]["google_gmail"].items() if v is True)
@@ -59,8 +56,8 @@ ldap_client = LDAPClient(config=config["ldap"])
 t = LdapSyncThread(21600, ldap_client.sync_users)
 t.start()
 
-if ENV == "testing":
-  ldap_users = ["harry", "paul", "dave", "adam", "larry", "stillings"]
+if config["ldap"]["queries"]["all_users"] == "":
+  ldap_users = ["harry", "paul", "dave", "adam", "larry"]
 else:
   ldap_users = ldap_client.sync_users()
 

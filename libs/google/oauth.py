@@ -10,7 +10,6 @@ class GoogleOAuthApi(object):
   def __init__(self, config):
     self.config = config
     self.SCOPES = self.config["google_apps"]["api_scopes"]
-    self.env = self.config["defaults"]["environment"]
     self.proxy_info = None
     if self.config["defaults"]["http_proxy"]["use_proxy"]:
       self._PROXY_HOST = self.config["defaults"]["http_proxy"]["proxy_url"]
