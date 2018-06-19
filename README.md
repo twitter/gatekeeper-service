@@ -178,6 +178,6 @@ Please report sensitive security issues via Twitter's bug-bounty program (https:
 
 ## To-Do
 
-* Implement more services (DUO currently in testing).
+* Implement more services.
 * Provide more deployment options (Docker container currently WIP).
 * Expose a REST API for services to talk to GateKeeper directly.
