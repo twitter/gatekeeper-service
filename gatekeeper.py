@@ -276,7 +276,7 @@ def lost_asset():
       user_is_valid = ldap_client.is_valid_user(user_id)
       if user_is_valid:
         user_info = ldap_client.get_user_info(user_id)
-        user_info[0]["active"] = ldap_client.is_active_user(user_id)
+        user_info["active"] = ldap_client.is_active_user(user_id)
       else:
         flash("WARNING: %s is not a valid LDAP user." % user_id)
         return redirect(url_for('lost_asset'))
@@ -289,6 +289,7 @@ def lost_asset():
                          users=json.dumps(ldap_users),
                          user=user,
                          user_info=user_info,
+                         ldap_fields=config["ldap"]["fields"],
                          actions=LOST_ASSET_ACTIONS)
 
 
@@ -348,6 +349,7 @@ def gdrive():
                          users=json.dumps(ldap_users),
                          user=user,
                          user_info=user_info,
+                         ldap_fields=config["ldap"]["fields"],
                          files=files)
 
 
