@@ -3,20 +3,37 @@
 
 GateKeeper is a service built to automate the manual steps involved in onboarding, offboarding, or lost asset scenarios. The service will handle the flow of letting internal and external services know that a user needs to be activated, suspended, or deleted.
 
-The backend for this project is built with Flask and Jinja2 templating.
+The backend for this project is built with Flask and Jinja2 templating.  
+
 
 ## Sections
 
-1. [Prerequisites](#prerequisites)
-2. [Installation](#installation)
-3. [Configuration](#configuration)
-4. [Logs](#logging)
-5. [Support](#support)
-6. [Authors](#authors)
-7. [License](#license)
-8. [Security](#security-issues)
-9. [To-Do](#to-do)
+1. [Features](#features)
+2. [Prerequisites](#prerequisites)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+5. [Logs](#logging)
+6. [Support](#support)
+7. [Authors](#authors)
+8. [License](#license)
+9. [Security](#security-issues)
+10. [To-Do](#to-do)
 
+
+## Features
+
+GateKeeper will run on MacOS and Linux.
+
+* Services currently supported:  
+  * LDAP
+  * Google Apps (Admin, Gmail, Calendar, Drive)
+  * PagerDuty
+  * DUO
+  
+* Deployment methods available:
+  * local (or a Virtual Machine)
+  * Mesos, via Aurora
+  * Docker container
 
 ## Prerequisites
 
@@ -31,7 +48,6 @@ You can get it via your package manager, or from [OpenJDK](http://openjdk.java.n
 
 4. Bower  
 You can get it via your package manager, or from [here](https://bower.io/).
-
 
 ## Installation
 
@@ -126,7 +142,7 @@ duo:
   host:                       string
   ikey:                       string
   skey:                       string
-  ca_certs:                  string
+  ca_certs:                   string
 
 google_apps:
   admin_user:                 string
@@ -159,7 +175,6 @@ Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/
 ## Security Issues
 
 Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter).
-
 
 ## To-Do
 

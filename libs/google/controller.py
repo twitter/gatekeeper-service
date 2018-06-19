@@ -1,6 +1,7 @@
 import json
 
 from apiclient import discovery
+from oauth2client.client import HttpAccessTokenRefreshError
 
 
 class GoogleApiController(object):
@@ -15,8 +16,7 @@ class GoogleApiController(object):
     """
     try:
       service = discovery.build(google_service, google_api, http=self.oauth)
-    # except discovery.HttpError:
-    except Exception as e:
+    except (discovery.HttpError, HttpAccessTokenRefreshError) as e:
       print("Error building a service connector. %s" % e)
       service = None
     return service
