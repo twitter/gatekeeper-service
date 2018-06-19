@@ -40,7 +40,7 @@ python_library(
     "libs:google_api",
     "libs:ldap_client",
     "libs:pagerduty",
-    "libs:duo_api"
+    "libs:duo"
   ],
 )
 

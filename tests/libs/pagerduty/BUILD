@@ -1,10 +1,3 @@
-target(
-    name = "pagerduty",
-    dependencies = [
-        ":pagerduty_tests",
-    ],
-)
-
 python_tests(
     name = "pagerduty_tests",
     sources = ["pagerduty_tests.py"],

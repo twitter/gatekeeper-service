@@ -76,7 +76,7 @@ python_library(
 )
 
 python_library(
-    name = "duo_api",
+    name = "duo",
     sources = globs("duo/*.py"),
     dependencies = [
         "3rdparty/python:duo-client"

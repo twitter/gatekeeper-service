@@ -13,7 +13,7 @@ CALL_PAGERDUTY_API = "pagerduty.HttpController.api_request"
 class PagerDutyApiTests(TestCase):
 
   def read_resource_file(self, res_file):
-    mock_results_dir = "it_infraeng/common/pagerduty/test/mock_results"
+    mock_results_dir = "tests/libs/pagerduty/mock_results"
     try:
       mock_resource_file = os.path.join(mock_results_dir, res_file)
       with open(mock_resource_file, "r") as fp:

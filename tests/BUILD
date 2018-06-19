@@ -11,3 +11,10 @@ target(
         "tests/libs/pagerduty:pagerduty_tests",
     ],
 )
+
+target(
+    name = "duo_api",
+    dependencies = [
+        "tests/libs/duo:duo_tests",
+    ],
+)
