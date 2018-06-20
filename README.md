@@ -93,7 +93,13 @@ The following instructions will help you create and launch a Docker container of
    ```
    docker run -d -p 5000:5000 --name="gatekeeper" twitter/gatekeeper
    ```
-   You can then access the GateKeeper UI at ```<container_ip>:5000``` (or the port you specified above).
+   You can then access the GateKeeper UI at ```<container_ip>:5000```   
+   (or the port you specified above, if different).
+   
+3. You can start/stop/restart the service, with:
+   ```
+   docker start|stop|restart gatekeeper
+   ```
 
 #### Local/VM Install 
 The following instructions will help you launch an instance of GateKeeper locally, or a Virtual Machine.
@@ -114,7 +120,7 @@ The following instructions will help you launch an instance of GateKeeper locall
    ./pants run :gatekeeper
    ```
    You can then access the GateKeeper UI at ```localhost:5000```
-
+   
 ## Configuration
 
 ```yaml
