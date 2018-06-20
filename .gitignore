@@ -9,6 +9,30 @@ config/google_api_service_account_keyfile.json
 # Ignore static JS libs
 static/bower_components/*
 
+# Docker project generated files to ignore
+.vagrant*
+bin
+docker/docker
+.*.swp
+a.out
+*.orig
+build_src
+.flymake*
+.idea
+.DS_Store
+docs/_build
+docs/_static
+docs/_templates
+.gopath/
+.dotcloud
+*.test
+bundles/
+.hg/
+.git/
+vendor/pkg/
+pyenv
+Vagrantfile
+
 
 ## MISC FILES SECTION
 
