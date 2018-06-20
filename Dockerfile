@@ -10,7 +10,7 @@ build-essential \
 libldap2-dev \
 libssl-dev \
 libsasl2-dev \
-openjdk-8-jdk
+openjdk-7-jdk
 
 # Set the working directory to /app
 WORKDIR /app
