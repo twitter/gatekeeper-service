@@ -1,5 +1,3 @@
-import os
-
 import socks
 from httplib2 import Http, HttpLib2ErrorWithResponse, ProxyInfo
 from oauth2client.service_account import ServiceAccountCredentials

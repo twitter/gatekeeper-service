@@ -23,7 +23,6 @@ PyYAML==3.12
 requests==2.18.4
 rsa==3.4.2
 six==1.11.0
-simplejson==3.15.0
 SocksiPy-branch==1.1
 twitter.common.app==0.3.9
 twitter.common.collections==0.3.9

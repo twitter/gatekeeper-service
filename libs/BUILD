@@ -17,7 +17,6 @@ python_library(
         "3rdparty/python:SocksiPy-branch",
         "3rdparty/python:httplib2",
         "3rdparty/python:oauth2client",
-        "3rdparty/python:simplejson",
     ],
 )
 
