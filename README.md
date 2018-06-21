@@ -192,7 +192,7 @@ duo:
 google_apps:
   admin_user:                 string (Google Apps Super Admin User Account that will own the service. example: "gatekeeper-admin")
   domain:                     string (Your GApps domain. example: "somedomain.com")
-  credentials_keyfile:        string (default: "google_api_service_account_keyfile.json")
+  credentials_keyfile:        string (default: "config/google_api_service_account_keyfile.json")
 ```
 
 ## Logging
