@@ -15,10 +15,15 @@ class DuoAdminApi(object):
     Creates a DUO Admin API Client object.
     :return: DUO client object
     """
-    client = duo_client.Admin(ikey=self.config["ikey"],
-                              skey=self.config["skey"],
-                              host=self.config["host"],
-                              ca_certs=self.config["ca_certs"])
+    if self.config["ca_certs"] == "":
+      client = duo_client.Admin(ikey=self.config["ikey"],
+                                skey=self.config["skey"],
+                                host=self.config["host"])
+    else:
+      client = duo_client.Admin(ikey=self.config["ikey"],
+                                skey=self.config["skey"],
+                                host=self.config["host"],
+                                ca_certs=self.config["ca_certs"])
 
     if self.use_proxy is True:
       self.proxy_headers = {"Proxy-Authorization": "Basic " + base64.b64encode(b"%s:%s" % (
@@ -58,7 +63,7 @@ class DuoAdminApi(object):
     :return: Bool
     """
     r = self.admin_api.delete_user(user_id)
-    if r is None:
+    if "response" in r and r["response"] == "":
       return True
     else:
       return False

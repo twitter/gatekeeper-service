@@ -34,8 +34,18 @@ EXPOSE 5000
 # Create the pex file
 RUN ./pants clean-all binary :gatekeeper
 
+# Import python and remove base container
+FROM python:2.7.14
+
+# Set the working directory to /app
+WORKDIR /app
+
 # Copy project files
 ADD . /app
+
+# Copy pex from base build
+COPY --from=base /app/dist /app/dist
+COPY --from=base /app/static /app/static
 
 # Run gatekeeper.pex when container starts
 CMD ["python", "dist/gatekeeper.pex"]
