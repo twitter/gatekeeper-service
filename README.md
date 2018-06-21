@@ -47,6 +47,8 @@ GateKeeper will run on MacOS and Linux.
   * Google Calendar
     - Change events ownership (with a configurable assignee) 
     - Delete future dated events (to free up resources like booked meeting rooms, equipment, etc)
+  * Google Drive
+    - Transfer ownership of files to another user (with regex filtered search)
   * PagerDuty
     - Remove from OnCall rotas
   * DUO Admin
@@ -172,7 +174,7 @@ ldap:
   user:                       string (username for LDAP login)
   pass:                       string (password for LDAP login)
   queries:
-    all_users:                string (LDAP query to return all active users. example: "(|(gidNumber=1000) (gidNumber=1001))")
+    all_users:                string (LDAP query to return all active users. example: "(|(gidNumber=1000) (gidNumber=1001))". Leave empty when testing.)
     user_is_valid:            string (LDAP query to return whether a user is valid, use "USER" as a var. example: "(& (uid=USER) (|(gidNumber=1000) (gidNumber=1001)))")
     user_is_active:           string (LDAP query to return whether a user is active, use "USER" as a var. example: "(& (uid=USER) (gidNumber=1001))")
     user_info:                string (LDAP query to return user attributes, use "USER" as a var. example: "(uid=USER)")

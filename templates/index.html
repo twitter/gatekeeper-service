@@ -193,7 +193,7 @@
 
     {% block ldap_users %}
     var users = {{ users|safe }};
-    $("#gcal_new_owner").val("{{user_info['manager']}}");
+    $("#gcal_new_owner").val("{{user_info[ldap_fields['manager']]}}");
     {% endblock %}
 
     typeaheadRun("#ldap-users", "users", users);

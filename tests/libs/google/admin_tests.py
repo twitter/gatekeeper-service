@@ -11,6 +11,7 @@ CALL_GOOGLE_API = "google.admin.GoogleApiController.call_google_api"
 
 class SomeGoogleAdminApi(GoogleAdminApi):
   def __init__(self, oauth):
+    self.config = MagicMock()
     self.oauth = oauth
     self.service = MagicMock()
 

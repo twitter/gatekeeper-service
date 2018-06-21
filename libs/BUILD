@@ -68,9 +68,7 @@ python_library(
     name = "pagerduty",
     sources = globs("pagerduty/*.py"),
     dependencies = [
-        ":helper_functions",
         ":http_controller",
-        "3rdparty/python:PyYAML",
     ],
 )
 

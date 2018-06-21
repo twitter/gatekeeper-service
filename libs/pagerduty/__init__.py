@@ -8,7 +8,7 @@ class PagerDutyApi(HttpController):
     self.config = config
     self.base_url = self.config["base_url"]
     self.api_key = self.config["api_key"]
-    self.HEADERS = {"Authorization": "Token token={0}".format(self.config["api_key"]),
+    self.HEADERS = {"Authorization": "Token token={0}".format(self.api_key),
                     "Accept": "application/vnd.pagerduty+json;version=2",
                     "Content-type": "application/json"}
     super(PagerDutyApi, self).__init__(base_url=self.base_url, **kwargs)
@@ -21,15 +21,17 @@ class PagerDutyApi(HttpController):
     """
     user_id = None
     params = {"query": user_email}
-    list_users = self.api_request(method="get",
-                                  endpoint="users",
-                                  params=params,
-                                  headers=self.HEADERS)
-
-    if "users" in list_users and len(list_users["users"]) > 0:
-      for user in list_users["users"]:
-        if user["email"] == user_email:
-          user_id = user["id"]
+    try:
+      list_users = self.api_request(method="get",
+                                    endpoint="users",
+                                    params=params,
+                                    headers=self.HEADERS)
+      if "users" in list_users and len(list_users["users"]) > 0:
+        for user in list_users["users"]:
+          if user["email"] == user_email:
+            user_id = user["id"]
+    except ValueError as e:
+      print(e)
 
     return user_id
 
@@ -237,6 +239,8 @@ class PagerDutyApi(HttpController):
             deleted = True
       except ValueError:
         deleted = True
+    else:
+      deleted = True
 
     return deleted
 

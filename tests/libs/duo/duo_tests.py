@@ -62,8 +62,7 @@ class DuoAdminApiTests(TestCase):
 
   @patch(CALL_DUO_API)
   def test_delete_user_pass(self, mock_duo_api):
-    mock_duo_api.delete_user.return_value = json.loads(
-      self.read_resource_file('delete_user_resource'))
+    mock_duo_api.delete_user.return_value = ""
     duo_api = SomeDuoAdminApi(admin_api=mock_duo_api)
     delete_user = duo_api.delete_user("DUVVVVVVVVVVV")
     assert delete_user is True

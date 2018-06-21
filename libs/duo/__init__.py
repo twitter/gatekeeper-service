@@ -63,7 +63,7 @@ class DuoAdminApi(object):
     :return: empty string when successful
     """
     r = self.admin_api.delete_user(user_id)
-    if "response" in r and r["response"] == "":
+    if r == "":
       return True
     else:
       return False

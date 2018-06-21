@@ -22,7 +22,7 @@ class HttpController(object):
     proxy_info = {
       "http": "http://{proxy_user}:{proxy_pass}@{proxy_url}:{proxy_port}"
               .format(**self.proxy_config),
-      "https": "https://{proxy_user}:{proxy_pass}@{proxy_host}:{proxy_port}"
+      "https": "https://{proxy_user}:{proxy_pass}@{proxy_url}:{proxy_port}"
               .format(**self.proxy_config)
     }
     return proxy_info
@@ -40,6 +40,7 @@ class HttpController(object):
       r = getattr(session, method)(url=api_endpoint,
                                    timeout=self.timeout_secs,
                                    proxies=self.proxy_info, **kwargs)
+      print("RES: %s" % r)
     except (requests.exceptions.ConnectionError, requests.exceptions.RequestException,
             AttributeError, TypeError) as e:
       print(e)
