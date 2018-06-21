@@ -155,12 +155,3 @@ class Runner(object):
       msg = "<p><span class=\"text-danger\">FAILED - INVALID USER</span></p>"
     log.info(msg)
     return msg
-
-
-if __name__ == "__main__":
-  """
-  Test
-  """
-  runner = Runner(user="stillings")
-  print("is valid: %s" % runner.is_valid_user)
-  print("user list: %s\n" % (runner.pagerduty_api.find_user_id(user_email=u'stillings@gtest.twitter.com')))

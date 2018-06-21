@@ -40,7 +40,6 @@ class HttpController(object):
       r = getattr(session, method)(url=api_endpoint,
                                    timeout=self.timeout_secs,
                                    proxies=self.proxy_info, **kwargs)
-      print("RES: %s" % r)
     except (requests.exceptions.ConnectionError, requests.exceptions.RequestException,
             AttributeError, TypeError) as e:
       print(e)
