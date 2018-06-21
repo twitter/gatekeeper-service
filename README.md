@@ -30,6 +30,28 @@ GateKeeper will run on MacOS and Linux.
   * PagerDuty
   * DUO
   
+* Actions currently implemented:
+  * LDAP
+    - Used to extract user information, and perform data validation against the GApps directory.
+  * Google Admin (Directory)
+    - Reset Google apps password 
+    - Purge application specific passwords 
+    - Purge 3rd party access tokens 
+    - Invalidate backup (verification) codes 
+    - Move a user to an OU named "/Offboarded Users" 
+    - Restore a user back to the default "/" OU
+  * Google GMail
+    - Set Out Of Office message (with a configurable message)
+    - Disable IMAP email 
+    - Disable POP email
+  * Google Calendar
+    - Change events ownership (with a configurable assignee) 
+    - Delete future dated events (to free up resources like booked meeting rooms, equipment, etc)
+  * PagerDuty
+    - Remove from OnCall rotas
+  * DUO Admin
+    - Remove user from DUO
+  
 * Deployment methods available:
   * local (or a Virtual Machine)
   * Docker container
@@ -75,13 +97,14 @@ A list of scopes needed for GateKeeper's operations can be found on the config.e
    Once complete, place your google_api_service_account_keyfile.json file in the config/ folder.
 
 3. Create a copy of the file config.example.yml to config.yml and modify the file to reflect your settings and API keys.  
-Consult the [Configuration](#configuration) section below for a short description of their usage.
+Consult the [Configuration](#configuration) section below for a short description of their usage.  
+Note: It is advisable to create separate configs for your test, and production environments.
    ```
    cd config
    cp config.example.yml config.yml
    ```
 
-#### Docker 
+#### Docker
 The following instructions will help you create and launch a Docker container of GateKeeper.
 
 1. Build the Docker image.
@@ -93,8 +116,8 @@ The following instructions will help you create and launch a Docker container of
    ```
    docker run -d -p 5000:5000 --name="gatekeeper" twitter/gatekeeper
    ```
-   You can then access the GateKeeper UI at ```<container_ip>:5000```   
-   (or the port you specified above, if different).
+   Wait until the service is up. (You can monitor the logs with ```docker logs -f gatekeeper```)  
+   You can then access the GateKeeper UI at ```<container_ip>:5000``` (or the port you specified above, if different).  
    
 3. You can start/stop/restart the service, with:
    ```
@@ -125,53 +148,51 @@ The following instructions will help you launch an instance of GateKeeper locall
 
 ```yaml
 defaults:
-  base_dir:                   string (base dir path)
-  use_https:                  bool
-  debug:                      bool
-  flask_secret:               string
+  base_dir:                   string (base dir path. default: ".")
+  debug:                      bool   (use for troubleshooting. default: false)
   http_proxy:
-    use_proxy:                bool
-    proxy_url:                string
-    proxy_port:               int
-    proxy_user:               string
-    proxy_pass:               string
+    use_proxy:                bool   (for routing traffic via a proxy. default: false)
+    proxy_url:                string (http proxy url, without the 'http(s)://' prefix)
+    proxy_port:               int    (default: 8080)
+    proxy_user:               string (http proxy account username)
+    proxy_pass:               string (http proxy account password)
 
 ldap:
-  base_dn:                    string
+  base_dn:                    string (base dn for your LDAP)
   uri:                        string (prefixed with "ldap(s)://")
-  user:                       string
-  pass:                       string
+  user:                       string (username for LDAP login)
+  pass:                       string (password for LDAP login)
   queries:
-    all_users:                string
-    user_is_valid:            string
-    user_is_active:           string
-    user_info:                string (example: "(uid=USER)")
+    all_users:                string (LDAP query to return all active users. example: "(|(gidNumber=1000) (gidNumber=1001))")
+    user_is_valid:            string (LDAP query to return whether a user is valid, use "USER" as a var. example: "(& (uid=USER) (|(gidNumber=1000) (gidNumber=1001)))")
+    user_is_active:           string (LDAP query to return whether a user is active, use "USER" as a var. example: "(& (uid=USER) (gidNumber=1001))")
+    user_info:                string (LDAP query to return user attributes, use "USER" as a var. example: "(uid=USER)")
   fields:
-    full_name:                string (example: "cn")
-    first_name:               string (example: "givenName")
-    role:                     string
-    team:                     string
-    org:                      string
-    location:                 string
-    start_date:               string
-    uid_number:               string (example: "uidNumber")
-    groups:                   string (example: "memberOf")
-    photo_url:                string (optional)
+    full_name:                string (LDAP field for full name. example: "cn")
+    first_name:               string (LDAP field for first nane. example: "givenName")
+    role:                     string (LDAP field for role.)
+    team:                     string (LDAP field for team.)
+    org:                      string (LDAP field for org.)
+    location:                 string (LDAP field for location.)
+    start_date:               string (LDAP field for start date.)
+    uid_number:               string (LDAP field for uid. example: "uidNumber")
+    groups:                   string (LDAP field for LDAP groups a user is a member of. example: "memberOf")
+    photo_url:                string (Optional - LDAP field for a user's profile photo/avatar location.)
 
 pagerduty:
-  base_url:                   string (example: "https://api.pagerduty.com/")
-  api_key:                    string
+  base_url:                   string (default: "https://api.pagerduty.com/")
+  api_key:                    string (API Key for PagerDuty. Must be v2, and have R/W permissions.)
   
 duo:
-  host:                       string
-  ikey:                       string
-  skey:                       string
-  ca_certs:                   string
+  host:                       string (Hostname to the DUO Secure server.)
+  ikey:                       string (Integration Key for DUO Secure.)
+  skey:                       string (Secure Key for DUO Secure.) 
+  ca_certs:                   string (Custom SSL Certs location for use with DUO. Leave empty to use the default certs. default: "")
 
 google_apps:
-  admin_user:                 string
-  domain:                     string
-  credentials_keyfile:        string (example: "google_api_service_account_keyfile.json")
+  admin_user:                 string (Google Apps Super Admin User Account that will own the service. example: "gatekeeper-admin")
+  domain:                     string (Your GApps domain. example: "somedomain.com")
+  credentials_keyfile:        string (default: "google_api_service_account_keyfile.json")
 ```
 
 ## Logging
@@ -182,7 +203,7 @@ Be sure to include the relevant log line(s) with any issues submitted.
 
 ## Support
 
-Create an issue on GitHub
+Please create an issue on GitHub
 
 ## Authors
 
@@ -201,7 +222,16 @@ Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/
 
 Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter).
 
+Be mindful of the file ownership and permissions for your "google_api_service_account_keyfile.json" and "config.yml" files.  
+These files will contain sensitive data that can grant API access to your platform and services.  
+Please practise caution when choosing a deployment method to better suit your environment's security conditions.
+
+The WebUI is currently served in HTTP, since this service is meant to be deployed within your internal network.  
+If your use case requires accessing GateKeeper via HTTPS, that can be achieved by redirecting all traffic to HTTPS with your own public facing proxy. 
+
 ## To-Do
 
 * Implement more services.
+* Add the option to parse a batch of users at once, via a CSV file.
 * Expose a REST API for services to talk to GateKeeper directly.
+* Make the service independent to the presence of LDAP, for orgs that do not make use of it.

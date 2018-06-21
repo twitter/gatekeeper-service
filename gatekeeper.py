@@ -45,7 +45,7 @@ STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 # Flask config
 webapp = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
-webapp.config["SECRET_KEY"] = config["defaults"]["flask_secret"]
+webapp.config["SECRET_KEY"] = os.urandom(20)
 webapp.config["PERMANENT_SESSION_LIFETIME"] = timedelta(seconds=120)
 
 

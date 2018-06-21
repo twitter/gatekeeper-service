@@ -60,7 +60,7 @@ class DuoAdminApi(object):
     """
     Delete user by id.
     :param: user_id: user_id
-    :return: Bool
+    :return: empty string when successful
     """
     r = self.admin_api.delete_user(user_id)
     if "response" in r and r["response"] == "":

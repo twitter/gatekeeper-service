@@ -334,7 +334,7 @@ class GoogleAdminApi(GoogleApiController):
 
   def org_unit_reset(self, user_key):
     """
-    Moves a user back to the twitter.com / OrgUnit.
+    Moves a user back to the default OrgUnit.
     :param user_key: userKey
     :return: bool
     Note: When successful, this request returns None.
