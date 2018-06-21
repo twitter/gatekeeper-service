@@ -33,7 +33,7 @@ class Runner(object):
     self.oauth_admin = self.google_oauth.get_oauth_token(self.admin_email)
     self.oauth_user = self.google_oauth.get_oauth_token(self.user_email)
 
-    self.admin_api = GoogleAdminApi(self.oauth_admin)
+    self.admin_api = GoogleAdminApi(self.oauth_admin, config=config["google_apps"])
     self.gmail_api = GoogleGmailApi(self.oauth_user)
     self.drive_api = GoogleDriveApi(self.oauth_user)
     self.calendar_api = GoogleCalendarApi(self.oauth_user)

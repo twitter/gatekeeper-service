@@ -5,8 +5,9 @@ from helper_functions import HelperFunctions
 
 
 class GoogleAdminApi(GoogleApiController):
-  def __init__(self, oauth):
+  def __init__(self, oauth, config=None):
     self.oauth = oauth
+    self.config = config
     self.service = self._get_service("admin", "directory_v1")
 
   def get_user_name(self, user_key):
@@ -310,7 +311,7 @@ class GoogleAdminApi(GoogleApiController):
     except(ValueError, KeyError, TypeError):
       return False
 
-  def org_unit_change(self, user_key, org_unit_path="/Offboarded Users"):
+  def org_unit_change(self, user_key):
     """
     Moves user to offboarded OrgUnit.
     :param user_key: userKey
@@ -318,6 +319,7 @@ class GoogleAdminApi(GoogleApiController):
     :return: bool
     Note: When successful, this request returns None.
     """
+    org_unit_path = self.config["offboarded_ou"]
     try:
       r = json.loads(self.call_google_api(service=self.service,
                                           api_resource="users",
@@ -339,7 +341,19 @@ class GoogleAdminApi(GoogleApiController):
     :return: bool
     Note: When successful, this request returns None.
     """
-    return self.org_unit_change(user_key=user_key, org_unit_path="/")
+    try:
+      r = json.loads(self.call_google_api(service=self.service,
+        api_resource="users",
+        api_method="update",
+        response_field="primaryEmail",
+        userKey=user_key,
+        body={"orgUnitPath": "/"}))
+      if r == user_key:
+        return True
+      else:
+        return False
+    except(ValueError, KeyError, TypeError):
+      return False
 
   def group_member_list(self, group_key):
     """

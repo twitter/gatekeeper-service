@@ -38,7 +38,7 @@ GateKeeper will run on MacOS and Linux.
     - Purge application specific passwords 
     - Purge 3rd party access tokens 
     - Invalidate backup (verification) codes 
-    - Move a user to an OU named "/Offboarded Users" 
+    - Move a user to a custom Organizational Unit 
     - Restore a user back to the default "/" OU
   * Google GMail
     - Set Out Of Office message (with a configurable message)
@@ -80,8 +80,13 @@ These steps apply to all the deployment methods listed below, and will need to b
    ```
    git clone https://github.com/twitter/gate-keeping-service
    ```
+
+2. You will need an Admin User for GApps, to be able to run GateKeeper operations.  
+This can be achieved either by using a Super Admin User, or by creating a Custom Administration Role for the service.  
+The latter is highly recommended, as it is a much more secure way of restricting access to your GApps environment.  
+You can create a Custom Administration Role, by following the instructions [here](https://support.google.com/a/answer/2406043?hl=en).
    
-2. For GateKeeper to be able to act as a user under your domain, you will need a Service Account with Domain-Wide Delegation of Authority.  
+3. For GateKeeper to be able to act as a user under your domain, you will need a Service Account with Domain-Wide Delegation of Authority.  
 Click [here](https://developers.google.com/admin-sdk/directory/v1/guides/delegation) for a guide on how to obtain these credentials.  
 (Follow the guides under sections "Create the service account and its credentials", and "Delegate domain-wide authority to your service account")  
 A list of scopes needed for GateKeeper's operations can be found on the config.example.yml file:
@@ -95,8 +100,12 @@ A list of scopes needed for GateKeeper's operations can be found on the config.e
    - "https://www.googleapis.com/auth/drive"
    ```
    Once complete, place your google_api_service_account_keyfile.json file in the config/ folder.
+   
+4. Create an OrgUnit in your GApps space, where you will be sending your offboarded users to.  
+This is good practice, and allows for easy move of an offboarded user back to the org, if necessary.  
+You can find instructions on how to add an OU [here](https://support.google.com/a/answer/182537?hl=en). 
 
-3. Create a copy of the file config.example.yml to config.yml and modify the file to reflect your settings and API keys.  
+5. Create a copy of the file config.example.yml to config.yml and modify the file to reflect your settings and API keys.  
 Consult the [Configuration](#configuration) section below for a short description of their usage.  
 Note: It is advisable to create separate configs for your test, and production environments.
    ```
@@ -190,7 +199,8 @@ duo:
   ca_certs:                   string (Custom SSL Certs location for use with DUO. Leave empty to use the default certs. default: "")
 
 google_apps:
-  admin_user:                 string (Google Apps Super Admin User Account that will own the service. example: "gatekeeper-admin")
+  admin_user:                 string (GApps Account that will own and run the service. See the Installation section for more info. example: "gatekeeper-admin")
+  offboarded_ou:              string (GApps OrgUnit where the offboarded users will fall under. default: "/Offboarded Users")
   domain:                     string (Your GApps domain. example: "somedomain.com")
   credentials_keyfile:        string (default: "config/google_api_service_account_keyfile.json")
 ```

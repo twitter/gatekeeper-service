@@ -42,6 +42,7 @@ duo:
 
 google_apps:
   admin_user: "gatekeeper-admin"
+  offboarded_ou: "/Offboarded Users"
   domain: ""
   credentials_keyfile: "config/google_api_service_account_keyfile.json"
   api_scopes:
