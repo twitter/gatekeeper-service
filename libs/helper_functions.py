@@ -37,9 +37,8 @@ class HelperFunctions(object):
 
   @classmethod
   def date_less_one_week(cls):
-    last_week = (datetime.utcnow() - timedelta(days=7)).isoformat() + 'Z'
-    week = last_week
-    return week
+    last_week = (datetime.utcnow() - timedelta(weeks=1)).isoformat() + 'Z'
+    return last_week
 
   @classmethod
   def rfc_datetime_now(cls):

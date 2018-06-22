@@ -53,11 +53,11 @@ class GoogleAdminApi(GoogleApiController):
     result = True
     try:
       r = json.loads(self.call_google_api(service=self.service,
-                                            api_resource="users",
-                                            api_method="update",
-                                            response_field="suspended",
-                                            userKey=user_key,
-                                            body={"suspended": True}))
+                                          api_resource="users",
+                                          api_method="update",
+                                          response_field="suspended",
+                                          userKey=user_key,
+                                          body={"suspended": True}))
       if r is True:
         result = True
     except(ValueError, KeyError, TypeError):
