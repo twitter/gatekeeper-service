@@ -80,7 +80,7 @@ These steps apply to all the deployment methods listed below, and will need to b
 
 1. Clone this repository.
    ```
-   git clone https://github.com/twitter/gate-keeping-service
+   git clone https://github.com/twitter/gatekeeper-service
    ```
 
 2. You will need an Admin User for GApps, to be able to run GateKeeper operations.  
