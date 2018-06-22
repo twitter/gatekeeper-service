@@ -3,7 +3,7 @@
 
 GateKeeper is a service built to automate the manual steps involved in onboarding, offboarding, or lost asset scenarios. The service will handle the flow of letting internal and external services know that a user needs to be activated, suspended, or deleted.
 
-The backend for this project is built with Flask and Jinja2 templating.  
+This project is built with Flask, Gevent, Gunicorn, and Jinja2 templating.  
 
 
 ## Sections
