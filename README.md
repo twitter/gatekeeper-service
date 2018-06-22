@@ -135,9 +135,9 @@ The following instructions will help you create and launch a Docker container of
    docker start|stop|restart gatekeeper
    ```
 
-4. Remove any intermediary images.
+4. Remove any untagged or intermediary images created during build. _(Optional)_ 
    ```
-   docker prune
+   docker image prune
    ```
 
 #### Local/VM Install 
