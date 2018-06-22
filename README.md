@@ -135,6 +135,11 @@ The following instructions will help you create and launch a Docker container of
    docker start|stop|restart gatekeeper
    ```
 
+4. Remove any intermediary images.
+   ```
+   docker prune
+   ```
+
 #### Local/VM Install 
 The following instructions will help you launch an instance of GateKeeper locally, or a Virtual Machine.
 
