@@ -22,15 +22,13 @@ The backend for this project is built with Flask and Jinja2 templating.
 
 ## Features
 
-GateKeeper will run on MacOS and Linux.
-
-* Services currently supported:  
+* **Services currently supported:**  
   * LDAP
   * Google Apps (Admin, Gmail, Calendar, Drive)
   * PagerDuty
   * DUO
   
-* Actions currently implemented:
+* **Actions currently implemented:**
   * LDAP
     - Used to extract user information, and perform data validation against the GApps directory.
   * Google Admin (Directory)
@@ -54,7 +52,7 @@ GateKeeper will run on MacOS and Linux.
   * DUO Admin
     - Remove user from DUO
   
-* Deployment methods available:
+* **Deployment methods available:**
   * local (or a Virtual Machine)
   * Docker container
   * Mesos, via Aurora
@@ -62,7 +60,9 @@ GateKeeper will run on MacOS and Linux.
 ## Prerequisites
 
 1. Linux or MacOS  
-If you are installing GateKeeper on MacOS, you will also need to have the XCode Command Line Tools installed:  ``` xcode-select --install ```
+Linux is highly recommended for a production installation.  
+MacOS is also supported, but should only be used on local deployments, or for testing, due to performance and security concerns.  
+Note: If you are installing GateKeeper on MacOS, you will also need to have the XCode Command Line Tools installed:  ``` xcode-select --install ```
 
 2. Python 2.7.x  
 You can get it via your package manager, or from [here](https://www.python.org/downloads/).
@@ -135,7 +135,7 @@ The following instructions will help you create and launch a Docker container of
    docker start|stop|restart gatekeeper
    ```
 
-4. Remove any untagged or intermediary images created during build. _(Optional)_ 
+4. _(Optional)_ Remove any untagged or intermediary images created during the build process. 
    ```
    docker image prune
    ```
@@ -249,6 +249,7 @@ If your use case requires accessing GateKeeper via HTTPS, that can be achieved b
 ## To-Do
 
 * Implement more services.
+* Integration with JIRA and other ticketing systems.
 * Add the option to parse a batch of users at once, via a CSV file.
 * Expose a REST API for services to talk to GateKeeper directly.
 * Make the service independent to the presence of LDAP, for orgs that do not make use of it.

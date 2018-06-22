@@ -13,7 +13,6 @@ class StandaloneApplication(gunicorn.app.base.BaseApplication):
       self.log_level = "debug"
     else:
       self.log_level = "info"
-
     self.num_workers = (multiprocessing.cpu_count() * 2) + 1
 
     self.options = {

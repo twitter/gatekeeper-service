@@ -17,7 +17,6 @@ python_library(
     "3rdparty/python:MarkupSafe",
     "3rdparty/python:WTForms",
     "3rdparty/python:gevent",
-    "3rdparty/python:greenlet",
     "libs:gunicorn_wrapper",
     ":runner_dependencies",
   ],

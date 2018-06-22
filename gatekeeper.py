@@ -19,11 +19,14 @@ from flask import Flask, flash, redirect, render_template, request, Response, ur
 from datetime import timedelta
 import json
 import os
+import platform
 
 
 app.set_name = "gatekeeper"
 app.add_option("-p", "--port", type="int", default=5000)
 config = HelperFunctions().read_config_from_yaml()
+
+PLATFORM = platform.system()
 
 GOOGLE_ADMIN_ACTIONS = list(k for k,v in config["actions"]["google_admin"].items() if v is True)
 GOOGLE_GMAIL_ACTIONS = list(k for k,v in config["actions"]["google_gmail"].items() if v is True)
@@ -36,18 +39,15 @@ OFFBOARD_ACTIONS = list(k for k,v in config["action_groups"]["offboard"].items()
 LOST_ASSET_ACTIONS = config["action_groups"]["lost_asset"]
 
 SET_DEBUG = config["defaults"]["debug"]
-USE_HTTPS = config["defaults"]["use_https"]
 BASE_DIR = os.path.abspath(config["defaults"]["base_dir"])
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
-
 # Flask config
 webapp = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 webapp.config["SECRET_KEY"] = os.urandom(20)
 webapp.config["PERMANENT_SESSION_LIFETIME"] = timedelta(seconds=120)
-
 
 # LDAP Connection
 ldap_client = LDAPClient(config=config["ldap"])
@@ -354,7 +354,9 @@ def gdrive():
 
 
 def main(args, options):
-  gunicorn_app = StandaloneApplication(webapp, options.port, debug=SET_DEBUG)
-  gunicorn_app.run()
+  if PLATFORM == "Linux":
+    StandaloneApplication(wsgi_app=webapp, port=options.port, debug=SET_DEBUG).run()
+  elif PLATFORM == "Darwin":
+    webapp.run(host="0.0.0.0", port=options.port, debug=SET_DEBUG, threaded=True)
 
 app.main()
