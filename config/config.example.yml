@@ -1,6 +1,6 @@
 defaults:
-  base_dir: "."
   debug: false
+  base_dir: "."
   http_proxy:
     use_proxy: false
     proxy_url: ""

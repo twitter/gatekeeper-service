@@ -16,7 +16,7 @@ This project is built with Flask, Gevent, Gunicorn, and Jinja2 templating.
 6. [Support](#support)
 7. [Authors](#authors)
 8. [License](#license)
-9. [Security](#security-issues)
+9. [Security](#security)
 10. [To-Do](#to-do)
 
 
@@ -164,8 +164,8 @@ The following instructions will help you launch an instance of GateKeeper locall
 
 ```yaml
 defaults:
-  base_dir:                   string (base dir path. default: ".")
   debug:                      bool   (use for troubleshooting. default: false)
+  base_dir:                   string (base dir path. default: ".")
   http_proxy:
     use_proxy:                bool   (for routing traffic via a proxy. default: false)
     proxy_url:                string (http proxy url, without the 'http(s)://' prefix)
@@ -235,7 +235,7 @@ Copyright 2013-2018 Twitter, Inc.
 
 Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
-## Security Issues
+## Security
 
 Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter).
 
