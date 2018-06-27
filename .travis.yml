@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r 3rdparty/python/requirements.txt
 script:
-  - ./pants test tests::
+  - ./pants clean-all test tests:

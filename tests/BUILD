@@ -1,4 +1,13 @@
 target(
+    name = "tests",
+    dependencies = [
+        ":google_api",
+        ":pagerduty_api",
+        ":duo_api",
+    ],
+)
+
+target(
     name = "google_api",
     dependencies = [
         "tests/libs/google:google_api_tests",
