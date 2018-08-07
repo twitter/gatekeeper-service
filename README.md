@@ -53,7 +53,7 @@ This project is built with Flask, Gevent, Gunicorn, and Jinja2 templating.
     - Remove user from DUO
   
 * **Deployment methods available:**
-  * local (or a Virtual Machine)
+  * Locally on MacOS/Linux (or a Virtual Machine)
   * Docker container
   * Mesos, via Aurora
 
