@@ -421,3 +421,59 @@ class GoogleAdminApi(GoogleApiController):
                                         response_field="lastLoginTime",
                                         userKey=user_key))
     return r
+
+  def get_user_alias(self, user_key):
+    """
+    Returns any alias associated with a user.
+    :param user_key: user_key
+    :return: alias object
+    Note: Returns a list of aliases.
+    """
+    r = json.loads(self.call_google_api(service=self.service,
+                                        api_resource="users",
+                                        api_method="get",
+                                        response_field="aliases",
+                                        userKey=user_key))
+    return r
+
+  def add_user_alias(self, user_key, alias):
+    """
+    Adds an alias for a user.
+    :param user_key: user_key
+    :param alias: alias
+    :return: Boolean
+    Note: Returns if alias added successfully.
+    """
+    r = json.loads(self.call_google_api(service=self.service,
+                                        api_resource="users.aliases",
+                                        api_method="insert",
+                                        response_field="alias",
+                                        userKey=user_key,
+                                        body={"alias": alias}))
+
+
+
+    if r == alias:
+      return True
+    else:
+      return False
+
+  def delete_user_alias(self, user_key, alias):
+    """
+    Deletes an alias from a user.
+    :param user_key: user_key
+    :param alias: alias
+    :return: Boolean
+    Note: When successful, this request returns empty.
+    """
+    r = json.loads(self.call_google_api(service=self.service,
+                                        api_resource="users.aliases",
+                                        api_method="delete",
+                                        response_field=None,
+                                        userKey=user_key,
+                                        alias=alias))
+    if r == "":
+      return True
+    else:
+      return False
+
