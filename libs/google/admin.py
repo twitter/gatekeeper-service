@@ -477,3 +477,30 @@ class GoogleAdminApi(GoogleApiController):
     else:
       return False
 
+  def create_user(self, user_key, last_name, first_name):
+    """
+    Creates a user account.
+    :param user_key: user_key
+    :param last_name: last_name
+    :param first_name: first_name
+    :return: user object
+    Note: When successful this returns a user object.
+    """
+    passwd = HelperFunctions().hash_passwd()
+    user_body = {
+      "name": {
+        "familyName": last_name,
+        "givenName": first_name,
+      },
+      "password": passwd,
+      "hashFunction": "SHA-1",
+      "primaryEmail": user_key,
+    }
+
+    r = json.loads(self.call_google_api(service=self.service,
+                                        api_resource="users",
+                                        api_method="insert",
+                                        response_field=None,
+                                        body=user_body))
+    return r
+
